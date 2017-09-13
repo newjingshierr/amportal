@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>全天候，随时可学-网站名称</title>
+<title>全天候，随时可学-网站名称1</title>
 <meta name="renderer" content="webkit">
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
