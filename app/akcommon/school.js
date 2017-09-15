@@ -45,11 +45,12 @@ $(function () {
     }
     function getList() {
         //http://famliytree.cn/api/news/items?index=0&pageSize=6
-        $.get('../app/akcommon/data.json',{},function(result){
-            if(result.ArrayOfam_news)
+        //../app/akcommon/data.json
+        $.get('http://famliytree.cn/api/news/items?index=0&pageSize=6',{},function(result){
+            if(result)
             {
-                window.localStorage.setItem('am_news',JSON.stringify(result.ArrayOfam_news.am_news));
-                $.each(result.ArrayOfam_news.am_news,function (index,item) {
+                window.localStorage.setItem('am_news',JSON.stringify(result));
+                $.each(result,function (index,item) {
                     var htmlText='<li data-id="'+item.ID+'"><div class="media media-lg li-img"> <div class="media-left">'+
                         '<a class="school-img school-link" href="#" title="'+item.Title+'" target="_self">'+
                         '<img class="media-object" src="../upload/201611/thumb.jpg" alt="'+item.Title+'"/>'+
