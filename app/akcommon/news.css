@@ -1,0 +1,22 @@
+
+.ak-news{
+
+}
+.ak-news .news-title{
+    width: 20%;
+    text-align: center;
+}
+.ak-news .news-title span{
+    font-size: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 3px solid #ebd305;
+}
+.ak-news .ak-news-footer{}
+.ak-news .ak-news-footer .footer-service-code{
+    font-size: 13px;
+}
+.ak-news .ak-news-footer .img-service{
+    max-height: 100px;
+    margin-left: 25px;
+}

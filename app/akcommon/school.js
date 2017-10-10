@@ -32,7 +32,6 @@ $(function () {
                 window.localStorage.setItem('am_news',JSON.stringify(result));
                 var type= GetQueryString('type')?Number(GetQueryString('type')):contentEnum.All;
                 pageSelect(type);
-                //catContent(type);
             }
         });
     }
