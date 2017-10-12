@@ -37006,3 +37006,8 @@ footer .met_foot_txt p {
 .pe-airplay:before {
     content: "\e67f"
 }
+
+/* common*/
+.cursor{
+	cursor: pointer;
+}
