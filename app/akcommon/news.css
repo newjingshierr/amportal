@@ -19,3 +19,44 @@
     max-height: 100px!important;
     margin-left: 25px!important;
 }
+
+.font-weight{
+    font-weight: 600;
+}
+
+.main-div{
+    width: 100%;
+}
+
+.store{
+    border: 1px solid #ebd305;
+    min-height: 100px;
+}
+.store .store-content{
+    padding-left: 200px;
+    text-align: left;
+    padding-right: 200px;
+}
+.store .store-content .address{
+    list-style-type:none;
+    padding-left: 0px!important;
+}
+.address .top div{
+    display: inline-block;
+}
+.address .top .tel{
+    float: right;
+}
+.address .addressname,.address .top .tel{
+    min-width: 300px;
+    background-color: #ebd305;
+    font-size: 25px;
+    padding-left: 30px;
+}
+.address .addressname .region{
+    margin-right: 30px;
+}
+.address .address-content{
+    padding: 0px 30px 0px 30px;
+    font-size: 16px;
+}
