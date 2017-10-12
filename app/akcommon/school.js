@@ -62,91 +62,15 @@ $(function () {
                 if(item.ID==id)index=i;
                 return item.ID==id;
             })[0];
-            loadDetailData(_thisData,index);
+            loadDetailData(index);
         });
         //加载搜索栏
         searchComponment(result);
     }
     //详情页加载
-    function loadDetailData(_thisData,index) {
-        var data= JSON.parse(window.localStorage.getItem('am_news'));
-        var main=$('.met-shownews-body');
-        //标题
-        main.find('.ak-title').html(_thisData.Title);
-        //时间
-        main.find('.ak-date').html(_thisData.Created);
-        //创建者
-        main.find('.ak-createby').html(_thisData.CreatedBy);
-        //浏览数量
-        main.find('.ak-looknum').html(_thisData.VisitCount);
-        //正文
-        main.find('.ak-content').html(_thisData.Content);
-        main.find('.ak-prev').off('click');
-        main.find('.ak-next').off('click');
-        //上一页
-        if(index!=0)
-        {
-            var prevData= data[index-1];
-            //上一页title
-            main.find('.ak-prev').attr('title',prevData.Title).removeClass('disabled');
-            main.find('.ak-prev span').html(': '+prevData.Title);
-            //添加点击事件
-            main.find('.ak-prev').on('click',function () {
-                loadDetailData(prevData,index-1);
-            })
-        }else{
-            main.find('.ak-prev').attr('title','没有了').addClass('disabled');
-            main.find('.ak-prev span').html(': '+'没有了');
-        }
-        //下一页
-        if(index<data.length-1)
-        {
-            var nextData=data[index+1];
-            //下一页的title
-            main.find('.ak-next').attr('title',nextData.Title).removeClass('disabled');
-            main.find('.ak-next span').html(': '+nextData.Title);
-            //添加点击事件
-            main.find('.ak-next').on('click',function () {
-                loadDetailData(nextData,index+1);
-            })
-        }else{
-            main.find('.ak-next').attr('title','没有了').addClass('disabled');
-            main.find('.ak-next span').html(': '+'没有了');
-        }
-        catPage(pageEnum.DetailPage);
+    function loadDetailData(index) {
+        window.location.href='./information_detail.html?index='+index;
     }
-    //搜索栏加载
-    function searchComponment(data) {
-        var main=$('.news-list-md .list-group-bordered');
-        if(main.find('li').length==0) {
-            $.each(data, function (index, item) {
-                var liElm = $('<li></li>').addClass('list-group-item').attr({'data-id': item.ID});
-                var aEml = $('<a></a>').attr({href: '#', title: item.Title}).html(item.Title);
-                liElm.append(aEml);
-                main.append(liElm);
-            });
-            //添加点击事件
-            main.find('li').on('click', function () {
-                var id = $(this).attr('data-id');
-                var index;
-                var _thisData = data.filter(function (item, i) {
-                    if (item.ID == id) index = i;
-                    return item.ID == id;
-                })[0];
-                //加载详情页
-                loadDetailData(_thisData, index);
-            })
-        }
-    }
-    //切换内容类别
-    $('.met-column-nav-ul li,.met-news-bar .column li').on('click',function () {
-        //切换主界面
-        catPage(pageEnum.InformationPage);
-        //修改标题
-        $('.met-banner-ny .vertical-align-middle').html($(this).find('a').html());
-        var type=$(this).attr('data-type');
-        pageSelect(type);
-    })
     //切换title
     function pageSelect(type) {
         //母版页中的选中替换
