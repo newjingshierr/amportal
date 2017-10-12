@@ -28,6 +28,12 @@
     width: 100%;
 }
 
+.li-img img {
+    max-width: 160px!important;
+    width: 160px!important;
+    height: 120px!important;
+}
+
 .store{
     border: 1px solid #ebd305;
     min-height: 100px;
