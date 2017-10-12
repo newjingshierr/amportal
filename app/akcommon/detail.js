@@ -17,7 +17,7 @@ $(function () {
         //标题
         main.find('.ak-title').html(_thisData.Title);
         //时间
-        main.find('.ak-date').html(_thisData.Created);
+        main.find('.ak-date').html(new Date(_thisData.Created).toLocaleDateString());
         //创建者
         main.find('.ak-createby').html(_thisData.CreatedBy);
         //浏览数量

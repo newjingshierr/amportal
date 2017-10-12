@@ -47,7 +47,7 @@ $(function () {
                     '</a></div><div class="media-body"><h4 class="media-heading">' +
                     '<a class="school-link" href="#" title="' + item.Title + '" target="_self">' + item.Title +
                     '</a></h4><p class="des">' + item.Content.substr(0, 100) + '...</p><p class="info">' +
-                    '<span>' + new Date(item.Created).getDate() + '</span>' +
+                    '<span>' + new Date(item.Created).toLocaleDateString() + '</span>' +
                     '<span class="margin-left-10">' + item.CreatedBy + '</span><span class="margin-left-10"><i class="icon wb-eye margin-right-5"aria-hidden="true">' +
                     '</i>'+item.VisitCount+'</span></p></div></div></li>';
                 var messageHtml = $(htmlText);
@@ -64,8 +64,6 @@ $(function () {
             })[0];
             loadDetailData(index);
         });
-        //加载搜索栏
-        searchComponment(result);
     }
     //详情页加载
     function loadDetailData(index) {
