@@ -20,7 +20,7 @@
 	width: 33.3%;
 }
 
-.new-img-tr img{
+.new-img-tr img {
 	cursor: pointer;
 }
 
@@ -45,6 +45,12 @@
 	}
 	.new-img-tr td img {
 		width: 100% !important;
+	}
+}
+
+@media (min-width:768px) {
+	.new-container {
+		width: 750px;
 	}
 }
 
