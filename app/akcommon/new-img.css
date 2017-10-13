@@ -20,6 +20,10 @@
 	width: 33.3%;
 }
 
+.new-img-tr img{
+	cursor: pointer;
+}
+
 .new-img-tr td p {
 	text-align: center;
 	margin-top: 10px;
