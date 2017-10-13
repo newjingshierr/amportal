@@ -17,24 +17,12 @@
 		<script src="../app/system/include/static/vendor/respond/respond.min.js"></script>
 		<script src="../app/system/include/static/js/classList.min.js"></script>
 		<![endif]-->
+		<link rel='stylesheet' href='../app/akcommon/new-img.css'>
 		<style type="text/css">
-			.new-table {
-				border: 1px solid #a59a9a;
-				/*margin: 0px 30px;*/
-			}
-			
-			.new-content-tr {
-				/*text-align: center;*/
-			}
-			
-			.new-content-tr td {
-				padding: 0px 50px;
-				word-break: break-all;
-			}
-			
-			.firstRow td {
-				width: 500px;
-				cursor: pointer;
+			@media (min-width: 768px) {
+				.met-show .container {
+					margin-top: 70px;
+				}
 			}
 		</style>
 	</head>
@@ -46,44 +34,15 @@
 			</div>
 		<![endif]-->
 
-		<nav class="navbar navbar-default met-nav navbar-fixed-top" role="navigation">
-			<div class="container">
-				<div class="row">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle hamburger hamburger-close collapsed" data-target="#example-navbar-default-collapse" data-toggle="collapse">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="hamburger-bar"></span>
-						</button>
-						<a href="../index.html" class="navbar-brand navbar-logo vertical-align" title="网站名称">
-							<div class="vertical-align-middle"><img src="../upload/201706/1497260553.png" alt="网站名称" title="网站名称"></div>
-						</a>
-					</div>
-					<div class="collapse navbar-collapse navbar-collapse-toolbar" id="example-navbar-default-collapse">
-						<ul class="nav navbar-nav navbar-right navlist">
-							<li>
-								<a href="index.html" title="公司简介" class="link  padding-horizontal-15">公司简介</a>
-							</li>
-							<li>
-								<a href="../brand/index.html" title="品牌理念" class="link  padding-left-25 padding-right-15">品牌理念</a>
-							</li>
-							<li>
-								<a href="../news/school_information.html" title="新闻资讯" class="link  padding-left-25 padding-right-15">新闻资讯</a>
-							</li>
-							<li>
-								<a href="#" title="乐园门店" class="link  padding-left-25 padding-right-15">乐园门店</a>
-							</li>
-							<li>
-								<a href="#" title="加入我们" class="link  padding-left-25 padding-right-15">加入我们</a>
-							</li>
-						</ul>
-
-					</div>
-				</div>
-			</div>
-		</nav>
+		<!--
+        	作者：offline
+        	时间：2017-10-13
+        	描述：导航模板
+        -->
+		<script src ="../app/html/navbar-html.js"></script>
 
 		<section class="met-show animsition">
-			<div class="container" style="margin-top: 150px;">
+			<div class="container">
 				<div class="row">
 					<div class="met-editor lazyload clearfix" style="padding-left: 0px;padding-right: 0px;">
 						<table>
@@ -104,85 +63,66 @@
 							</tbody>
 						</table>
 					</div>
-					<table class="new-table">
-						<tbody>
-							<tr class="firstRow">
-								<td valign="top" style="word-break: break-all;">
-									<div class="met-editor">
-										<img src="../upload/abouts/a1.jpg" />
-										<img style="display: none;" src="../upload/abouts/a2.jpg" />
-										<img style="display: none;" src="../upload/abouts/a3.jpg" />
-									</div>
-								</td>
-								<td valign="top" style="word-break: break-all;">
-									<div class="met-editor">
-										<img src="../upload/abouts/b1.jpg" />
-										<img style="display: none;" src="../upload/abouts/b2.jpg" />
-										<img style="display: none;" src="../upload/abouts/b3.jpg" />
-									</div>
-								</td>
-								<td valign="top" style="word-break: break-all;">
-									<div class="met-editor">
-										<img src="../upload/abouts/c1.jpg" />
-										<img style="display: none;" src="../upload/abouts/c2.jpg" />
-										<img style="display: none;" src="../upload/abouts/c3.jpg" />
-									</div>
-								</td>
-							</tr>
-							<tr class="new-content-tr">
-								<td style="display: block;">
-									<p>100%全英文沉浸式学习环境100%全英文沉浸式学习环境100%全英文沉浸式学习环境</p>
-								</td>
-								<td>
-									<p>给孩子提供“沉浸式”的英语环境给孩子提供“沉浸式”的英语环境给孩子提供“沉浸式”的英语环境</p>
-								</td>
-								<td style="display: block;">
-									<p>个性化 因材施教个性化 因材施教个性化 因材施教个性化 因材施教个性化 因材施教</p>
-								</td>
-							</tr>
-						</tbody>
-					</table>
 				</div>
 			</div>
 		</section>
 
-		<footer>
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="footer-body  ak-news-footer">
-							<h3 class="margin-bottom-20">
-								<img src="../upload/201706/1497260553.png" class='img-responsive'/>
-							</h3>
-							<p class="footer-service-code">更多详情请关注官方服务号</p>
-							<h3 class="margin-bottom-20">
-								<img src="../upload/img/weixin.jpg" class="img-service" style="max-height: 100px;">
-							</h3>
-						</div>
-					</div>
-					<div class="visible-xs-block height-20"></div>
-					<div class="col-sm-6 contact">
-						<div class="footer-body">
-							<h3 class="title" style="font-size: 16px;font-weight: 600;">CONTACT</h3>
-							<p>
-								<i class="icon pe-map-marker" aria-hidden="true"></i> 上海市徐汇区田林东路75号汇阳广场518室
-							</p>
-							<p>
-								<i class="icon pe-call" aria-hidden="true"></i> 4006-817-813
-							</p>
-							<p>
-								<i class="icon pe-mail" aria-hidden="true"></i>
-								<a href="mailto:info@amazontx.com" rel="nofollow">beiku@amazontx.com</a>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
+		<!--
+        	作者：offline
+        	时间：2017-10-13
+        	描述：图片新闻-图片预览
+        -->
+		<div class="new-container">
+			<table class="new-table">
+				<tbody>
+					<tr class="new-img-tr">
+						<td class="met-editor">
+							<div>
+								<img valign="top" src="../upload/abouts/a1.jpg" />
+								<img valign="top" style="display: none;" src="../upload/abouts/a2.jpg" />
+								<img valign="top" style="display: none;" src="../upload/abouts/a3.jpg" />
+							</div>
+							<div>
+								<p>100%全英文沉浸式学习环境</p>
+							</div>
+						</td>
+						<td class="met-editor">
+							<div><img valign="top" src="../upload/abouts/b1.jpg" />
+								<img valign="top" style="display: none;" src="../upload/abouts/b2.jpg" />
+								<img valign="top" style="display: none;" src="../upload/abouts/b3.jpg" /></div>
+							<div>
+								<p>给孩子提供“沉浸式”的英语环境</p>
+							</div>
+						</td>
+						<td class="met-editor">
+							<div>
+								<img valign="top" src="../upload/abouts/c1.jpg" />
+								<img valign="top" style="display: none;" src="../upload/abouts/c2.jpg" />
+								<img valign="top" style="display: none;" src="../upload/abouts/c3.jpg" />
+							</div>
+							<div>
+								<p>个性化 因材施教</p>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<!--
+        	作者：offline
+        	时间：2017-10-13
+        	描述：脚部模板
+        -->
+		<script src ="../app/html/footer-html.js"></script>
 
 		<button type="button" class="btn btn-icon btn-primary btn-squared met-scroll-top hide"><i class="icon wb-chevron-up" aria-hidden="true"></i></button>
 
-		<!--图片预览插件-->
+		<!--
+        	作者：offline
+        	时间：2017-10-13
+        	描述：图片预览插件
+        -->
 		<script src="../templates/M1996003/cache/metinfo.js?2016122701"></script>
 	</body>
 

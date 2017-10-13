@@ -17,66 +17,23 @@
 		<script src="./app/system/include/static/vendor/respond/respond.min.js"></script>
 		<script src="./app/system/include/static/js/classList.min.js"></script>
 		<![endif]-->
-		<style type="text/css">
-			.new-table {
-				/*margin: 0px 30px;*/
-				background-color: #e1cd27;
-			}
-			
-			.met-editor{
-				background-color: #e1cd27;
-			}
-			
-			.new-content-tr {
-				/*text-align: center;*/
-			}
-			
-			.new-content-tr td {
-				padding: 0px 50px;
-				word-break: break-all;
-			}
-			
-			.firstRow td {
-				width: 500px;
-				cursor: pointer;
-			}
-		</style>
+		<link rel='stylesheet' href='app/akcommon/new-img.css'>
 	</head>
 
-<body class='met-navfixed'>
+	<body class='met-navfixed'>
 		<!--[if lte IE 8]>
 		<div class="text-center padding-top-50 padding-bottom-50 bg-blue-grey-100">
 			<p class="browserupgrade font-size-18">你正在使用一个<strong>过时</strong>的浏览器。请<a href="http://browsehappy.com/"
 																					  target="_blank">升级您的浏览器</a>，以提高您的体验。</p>
 		</div>
 		<![endif]-->
-		<nav class="navbar navbar-default met-nav navbar-fixed-top" role="navigation">
-			<div class="container">
-				<div class="row">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle hamburger hamburger-close collapsed"
-								data-target="#example-navbar-default-collapse" data-toggle="collapse">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="hamburger-bar"></span>
-						</button>
-						<a href="../index.html" class="navbar-brand navbar-logo vertical-align" title="网站名称">
-							<div class="vertical-align-middle"><img src="./upload/201706/1497260553.png" alt="网站名称"
-																	title="网站名称"></div>
-						</a>
-					</div>
-					<div class="collapse navbar-collapse navbar-collapse-toolbar" id="example-navbar-default-collapse">
-						<ul class="nav navbar-nav navbar-right navlist">
-							<li><a href="abouts/index.html" title="公司简介" class="link  padding-horizontal-15">公司简介</a></li>
-							<li><a href="brand/index.html" title="品牌理念" class="link  padding-left-25 padding-right-15">品牌理念</a></li>
-							<li><a href="news/school_information.html" title="新闻资讯" class="link  padding-left-25 padding-right-15">新闻资讯</a></li>
-							<li><a href="#" title="乐园门店" class="link  padding-left-25 padding-right-15">乐园门店</a></li>
-							<li><a href="#" title="加入我们" class="link  padding-left-25 padding-right-15">加入我们</a></li>
-						</ul>
 
-					</div>
-				</div>
-			</div>
-		</nav>
+		<!--
+        	作者：offline
+        	时间：2017-10-13
+        	描述：导航模板
+        -->
+		<script src="app/html/navbar-index-html.js"></script>
 
 		<div class="met-banner">
 			<div class="carousel slide" id="met-banner-slide" data-ride="carousel">
@@ -103,7 +60,7 @@
 						<a href="#" title="" target='_self'>
 
 							<picture>
-								<source srcset="upload/banner/banner1.jpg" media="(min-width: 768px)" />
+								<source srcset="upload/banner/banner1.jpg"/>
 								<img class="cover-image overlay-scale" srcset="upload/banner/banner1.jpg&x=600" alt="" />
 							</picture>
 							<div class="carousel-caption p-1">
@@ -121,7 +78,7 @@
 						<a href="#" title="" target='_self'>
 
 							<picture>
-								<source srcset="upload/banner/banner2.jpg" media="(min-width: 768px)" />
+								<source srcset="upload/banner/banner2.jpg"/>
 								<img class="cover-image overlay-scale" srcset="upload/banner/banner2.jpg&x=600" alt="" />
 							</picture>
 							<div class="carousel-caption p-5">
@@ -139,7 +96,7 @@
 						<a href="#" title="" target='_self'>
 
 							<picture>
-								<source srcset="upload/banner/banner3.jpg" media="(min-width: 768px)" />
+								<source srcset="upload/banner/banner3.jpg"/>
 								<img class="cover-image overlay-scale" srcset="upload/banner/banner3.jpg&x=600" alt="" />
 							</picture>
 							<div class="carousel-caption p-5">
@@ -157,7 +114,7 @@
 						<a href="#" title="" target='_self'>
 
 							<picture>
-								<source srcset="upload/banner/banner4.jpg" media="(min-width: 768px)" />
+								<source srcset="upload/banner/banner4.jpg"/>
 								<img class="cover-image overlay-scale" srcset="upload/banner/banner4.jpg&x=600" alt="" />
 							</picture>
 							<div class="carousel-caption p-5">
@@ -263,91 +220,67 @@
 				<h3 class="title invisible" data-plugin="appear" data-animate="slide-top" data-repeat="false">乐园特色项目介绍</h3>
 				<p class="desc invisible animation-delay-200" data-plugin="appear" data-animate="fade" data-repeat="false">
 					基于3-15岁年龄段孩子的语言能力、认知发展和兴趣，参考欧洲语言标准（CEFR），同步欧美最新课程框架，精心研发出适合中国孩子的英语学习课程，在语言学习的关键期，通过和专业外教1对1沉浸式学习，真正像母语一样习得英语，让孩子使用英语思考，英语随时随地脱口而出。</p>
-				<table class="new-table">
-						<tbody>
-							<tr class="firstRow">
-								<td valign="top" style="word-break: break-all;">
-									<div class="met-editor">
-										<img src="upload/index/a1.jpg" />
-										<img style="display: none;" src="upload/index/a2.jpg" />
-										<img style="display: none;" src="upload/index/a3.jpg" />
-									</div>
-								</td>
-								<td valign="top" style="word-break: break-all;">
-									<div class="met-editor">
-										<img src="upload/index/b1.jpg" />
-										<img style="display: none;" src="upload/index/b2.jpg" />
-										<img style="display: none;" src="upload/index/b3.jpg" />
-									</div>
-								</td>
-								<td valign="top" style="word-break: break-all;">
-									<div class="met-editor">
-										<img src="upload/index/c1.jpg" />
-										<img style="display: none;" src="upload/index/c2.jpg" />
-										<img style="display: none;" src="upload/index/c3.jpg" />
-									</div>
-								</td>
-								<td valign="top" style="word-break: break-all;">
-									<div class="met-editor">
-										<img src="upload/index/c1.jpg" />
-										<img style="display: none;" src="upload/index/c2.jpg" />
-										<img style="display: none;" src="upload/index/c3.jpg" />
-									</div>
-								</td>
-							</tr>
-							<tr class="new-content-tr">
-								<td style="display: block;">
-									<p>100%全英文沉浸式学习环境100%全英文沉浸式学习环境100%全英文沉浸式学习环境</p>
-								</td>
-								<td>
-									<p>给孩子提供“沉浸式”的英语环境给孩子提供“沉浸式”的英语环境给孩子提供“沉浸式”的英语环境</p>
-								</td>
-								<td>
-									<p>个性化 因材施教个性化 因材施教个性化 因材施教个性化 因材施教个性化 因材施教</p>
-								</td>
-								<td style="display: block;">
-									<p>个性化 因材施教个性化 因材施教个性化 因材施教个性化 因材施教个性化 因材施教</p>
-								</td>
-							</tr>
-						</tbody>
-					</table>
+			</div>
+			<!--
+        	作者：offline
+        	时间：2017-10-13
+        	描述：图片新闻-图片预览
+        -->
+			<div class="new-container">
+				<table class="new-table" style="border: none;">
+					<tbody>
+						<tr class="new-img-tr">
+							<td class="met-editor" style="width: 25%;background: #e1cd27;">
+								<div>
+									<img valign="top" src="upload/index/a1.jpg" />
+									<img valign="top" style="display: none;" src="upload/index/a2.jpg" />
+									<img valign="top" style="display: none;" src="upload/index/a3.jpg" />
+								</div>
+								<div>
+									<p>100%全英文沉浸式学习环境</p>
+								</div>
+							</td>
+							<td class="met-editor" style="width: 25%;background: #e1cd27;">
+								<div><img valign="top" src="upload/index/b1.jpg" />
+									<img valign="top" style="display: none;" src="upload/index/b2.jpg" />
+									<img valign="top" style="display: none;" src="upload/index/b3.jpg" /></div>
+								<div>
+									<p>100%全英文沉浸式学习环境</p>
+								</div>
+							</td>
+							<td class="met-editor" style="width: 25%;background: #e1cd27;">
+								<div>
+									<img valign="top" src="upload/index/c1.jpg" />
+									<img valign="top" style="display: none;" src="upload/index/c2.jpg" />
+									<img valign="top" style="display: none;" src="upload/index/c3.jpg" />
+								</div>
+								<div>
+									<p>100%全英文沉浸式学习环境</p>
+								</div>
+							</td>
+							<td class="met-editor" style="width: 25%;background: #e1cd27;">
+								<div>
+									<img valign="top" src="upload/index/c1.jpg" />
+									<img valign="top" style="display: none;" src="upload/index/c2.jpg" />
+									<img valign="top" style="display: none;" src="upload/index/c3.jpg" />
+								</div>
+								<div>
+									<p>100%全英文沉浸式学习环境</p>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 
 		</div>
-		
-		<footer>
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="footer-body  ak-news-footer">
-							<h3 class="margin-bottom-20">
-								<img src="upload/201706/1497260553.png" class='img-responsive'/>
-							</h3>
-							<p class="footer-service-code">更多详情请关注官方服务号</p>
-							<h3 class="margin-bottom-20">
-								<img src="./upload/img/weixin.jpg" class="img-service" style="max-height: 100px;">
-							</h3>
-						</div>
-					</div>
-					<div class="visible-xs-block height-20"></div>
-					<div class="col-sm-6 contact">
-						<div class="footer-body">
-							<h3 class="title" style="font-size: 16px;font-weight: 600;">CONTACT</h3>
-							<p>
-								<i class="icon pe-map-marker" aria-hidden="true"></i> 上海市徐汇区田林东路75号汇阳广场518室
-							</p>
-							<p>
-								<i class="icon pe-call" aria-hidden="true"></i> 4006-817-813
-							</p>
-							<p>
-								<i class="icon pe-mail" aria-hidden="true"></i>
-								<a href="mailto:info@amazontx.com" rel="nofollow">beiku@amazontx.com</a>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
+
+		<!--
+        	作者：offline
+        	时间：2017-10-13
+        	描述：脚部模板
+        -->
+		<script src="app/html/footer-index-html.js"></script>
 
 		<button type="button" class="btn btn-icon btn-primary btn-squared met-scroll-top hide">
 		    <i class="icon wb-chevron-up" aria-hidden="true"></i>
