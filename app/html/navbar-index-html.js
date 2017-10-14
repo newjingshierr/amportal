@@ -25,7 +25,7 @@ document.writeln("							<li>");
 document.writeln("								<a href=\'#\' title=\'乐园门店\' class=\'link  padding-left-25 padding-right-15\'>乐园门店</a>");
 document.writeln("							</li>");
 document.writeln("							<li>");
-document.writeln("								<a href=\'#\' title=\'加入我们\' class=\'link  padding-left-25 padding-right-15\'>加入我们</a>");
+document.writeln("								<a href=\'news/joinus.html\' title=\'加入我们\' class=\'link  padding-left-25 padding-right-15\'>加入我们</a>");
 document.writeln("							</li>");
 document.writeln("						</ul>");
 document.writeln("");
