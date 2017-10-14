@@ -23,16 +23,60 @@
 		<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
 		<style type="text/css">
 			@media (max-width: 768px) {
-				.join-us-content{
-					margin-top: 30px !important;
+				.join-us-content {
+					margin-top: 0px !important;
 				}
 				.met-news .met-news-list ul li .media p.des {
 					display: block !important;
 				}
+				.join-us-title {
+					float: none !important;
+					width: 100% !important;
+					margin-bottom: 30px;
+				}
+				.join-us-center {
+					width: 100% !important;
+				}
+				.join-us-footer {
+					width: 100% !important;
+				}
 			}
 			
-			.met-news .met-news-list ul li{
+			.met-news .met-news-list ul li {
 				border-bottom: 1px solid #ccc1c1;
+			}
+			
+			.join-us-title {
+				text-align: center;
+				float: right;
+				width: 20%;
+			}
+			
+			.join-us-title span {
+				font-size: 25px;
+				font-weight: 600;
+				cursor: pointer;
+				border-bottom: 3px solid #ebd305;
+			}
+			
+			.join-us-center {
+				width: 80%;
+			}
+			
+			.join-us-footer {
+				width: 80%;
+			}
+			
+			.join-us-footer-item {
+				box-sizing: border-box;
+				padding: 8px;
+				line-height: 1.57143;
+				vertical-align: top;
+				border: 1px solid #c3c3c3;
+				word-break: break-all;
+			}
+			.join-us-footer-item p{
+				text-align: center;
 			}
 		</style>
 	</head>
@@ -56,8 +100,21 @@
 				<div class="row">
 					<div class="met-editor lazyload clearfix met-news">
 						<div class="table-saw met-news-list">
+							<!--
+                            	作者：offline
+                            	时间：2017-10-14
+                            	描述：标题
+                            -->
+							<div class="join-us-title">
+								<span>JOIN US</span>
+							</div>
 
-							<ul class="met-page-ajax" id="messageContent" style="list-style-type: none;">
+							<!--
+                            	作者：offline
+                            	时间：2017-10-14
+                            	描述：招聘信息
+                            -->
+							<ul class="met-page-ajax join-us-center" id="messageContent" style="list-style-type: none;">
 								<li data-id="893360992342380571">
 									<div class="media media-lg li-img">
 										<div class="media-body">
@@ -96,24 +153,17 @@
 								</li>
 							</ul>
 
-							<div class="table table-bordered table-hover table-striped table-responsive" width="1250">
-								<div style="box-sizing: border-box;">
-									<div class="firstRow" style="box-sizing: border-box; background-color: rgba(243, 247, 249, 0.298039);">
-										<div style="box-sizing: border-box; padding: 8px; line-height: 1.57143; vertical-align: top; border: 1px solid rgb(228, 234, 236); word-break: break-all;" width="420" valign="top">
-											<p style="text-align: center;">
-												面试信息&nbsp;<br style="box-sizing: border-box; padding: 0px; margin: 0px;">
-											</p>
-											<p style="text-align: center;">
-												面试地址：徐汇区田林东路75号汇阳广场518
-											</p>
-											<p style="text-align: center;">
-												电话：+86-54668201  / 13701970310
-											</p>
-											<p style="text-align: center;">
-												联系人：沈老师
-											</p>
-										</div>
-									</div>
+							<!--
+                            	作者：offline
+                            	时间：2017-10-14
+                            	描述：面试信息
+                            -->
+							<div class="join-us-footer table table-bordered table-hover table-striped table-responsive" width="1250">
+								<div class="join-us-footer-item">
+									<p>面试信息</p>
+									<p>面试地址：徐汇区田林东路75号汇阳广场518</p>
+									<p>电话：+86-54668201  / 13701970310</p>
+									<p>联系人：沈老师</p>
 								</div>
 							</div>
 						</div>
