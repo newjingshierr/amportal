@@ -7153,8 +7153,8 @@ $(function() {
 			if ($(this).parent("a").length == 0) {
 				var data_src = $(this).data("original") ? $(this).data("original"):($(this).data("src")?$(this).data("src"):$(this).attr("src")),
 					data_thumbs=data_src.split('upload/'),
-					data_thumb='../include/thumb.php?dir=../upload/'+data_thumbs[1]+'&x=60&y=60';
-				$(this).wrap("<div class='lg-item-box' data-src='" + data_src + "' data-exthumbimage='" + data_thumb + "'></div>");
+					data_thumb='../upload/'+data_thumbs[1]+'&x=60&y=60';
+				$(this).wrap("<div class='lg-item-box' data-src='" + data_src + "' data-exthumbimage='" + data_src + "'></div>");
 			}
 		});
 		$("body").addClass("met-white-lightGallery"); //画廊皮肤

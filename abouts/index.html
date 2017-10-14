@@ -19,9 +19,69 @@
 		<![endif]-->
 		<link rel='stylesheet' href='../app/akcommon/new-img.css'>
 		<style type="text/css">
-			@media (min-width: 768px) {
-				.met-show .container {
-					margin-top: 70px;
+			.abouts-banner {
+				margin-top: 150px;
+				border: 1px solid #c3c3c3;
+				margin-bottom: 50px;
+				background-color: #efefef;
+			}
+			
+			.abouts-banner .met-editor {
+				background-color: #efefef;
+			}
+			
+			.abouts-title {
+				float: right;
+				width: 50%;
+				padding: 30px;
+				padding-bottom: 0px;
+				font-size: 18px;
+				font-weight: 300;
+			}
+			
+			.abouts-title .soild{
+				width:50px;border-bottom: 5px solid yellow;
+			}
+			
+			.abouts-img {
+				float: left;
+				width: 50%;
+				min-height: 300px;
+			}
+			.abouts-img img{
+				width: 100%;
+				min-height: 300px;
+			}
+			
+			.abouts-content {
+				float: left;
+				width: 50%;
+				padding: 30px;
+				padding-top: 10px;
+				font-size: 18px;
+				font-weight: 300;
+			}
+			
+			@media (max-width: 768px) {
+				.abouts-banner{
+					margin-top: 0px;
+				}
+				.abouts-title {
+					float: none;
+					width: 100%;
+					text-align: center;
+					margin-bottom: 10px;
+				}
+				.abouts-title .soild{
+					margin: 0 auto;
+				}
+				.abouts-img {
+					float: none;
+					width: 100%;
+				}
+				.abouts-content {
+					float: none;
+					width: 100%;
 				}
 			}
 		</style>
@@ -39,33 +99,28 @@
         	时间：2017-10-13
         	描述：导航模板
         -->
-		<script src ="../app/html/navbar-html.js"></script>
+		<script src="../app/html/navbar-html.js"></script>
 
-		<section class="met-show animsition">
-			<div class="container">
-				<div class="row">
-					<div class="met-editor lazyload clearfix" style="padding-left: 0px;padding-right: 0px;">
-						<table>
-							<tbody>
-								<tr>
-									<td width="800" style="word-break: break-all;">
-										<img style="width: 800px !important;height: 400px !important;" src="../upload/abouts/banner.jpg" />
-									</td>
-									<td width="800" valign="top" style="padding: 50px;" style="word-break: break-all;">
-										<p style="font-weight: 800;" data-plugin="appear" data-animate="slide-top" data-repeat="false">
-											ABOUT US
-										</p>
-										<p style="width:50px;border-bottom: 5px solid yellow;"></p>
-										<p data-plugin="appear" data-animate="slide-top" data-repeat="false">贝酷文化传播（上海）有限公司成立于2014年。旗下创立的儿童有了品牌「亚马逊王国」以独特的乐园游玩体验及贴心的管家式服务，获得广大家长儿童的认可和青睐，仅用三年时间，迅速占领上海及周边各大高端商业体儿童市场，成为本土最具市场潜力的大型连锁性儿童乐园之一，现“亚马逊王国”共有20多家门店，总部位于上海
-										</p>
-									</td>
-								</tr>
-							</tbody>
-						</table>
+		<div class="container">
+			<div class="row abouts-banner">
+				<div class="abouts-title">
+					<p style="font-weight: 800;" data-plugin="appear" data-animate="slide-top" data-repeat="false">
+						ABOUT US
+					</p>
+					<p class="soild"></p>
+				</div>
+				<div class="abouts-img">
+					<div class="met-editor">
+						<img class="cursor" src="../upload/abouts/banner.jpg" />
 					</div>
 				</div>
+				<div class="abouts-content">
+					<p data-plugin="appear" data-animate="slide-top" data-repeat="false">贝酷文化传播（上海）有限公司成立于2014年。旗下创立的儿童有了品牌「亚马逊王国」以独特的乐园游玩体验及贴心的管家式服务，获得广大家长儿童的认可和青睐，仅用三年时间，迅速占领上海及周边各大高端商业体儿童市场，成为本土最具市场潜力的大型连锁性儿童乐园之一，现“亚马逊王国”共有20多家门店，总部位于上海
+					</p>
+				</div>
+
 			</div>
-		</section>
+		</div>
 
 		<!--
         	作者：offline
@@ -114,7 +169,7 @@
         	时间：2017-10-13
         	描述：脚部模板
         -->
-		<script src ="../app/html/footer-html.js"></script>
+		<script src="../app/html/footer-html.js"></script>
 
 		<button type="button" class="btn btn-icon btn-primary btn-squared met-scroll-top hide"><i class="icon wb-chevron-up" aria-hidden="true"></i></button>
 

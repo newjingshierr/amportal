@@ -19,9 +19,69 @@
 		<![endif]-->
 		<link rel='stylesheet' href='../app/akcommon/new-img.css'>
 		<style type="text/css">
-			@media (min-width: 768px) {
-				.met-show .container {
-					margin-top: 70px;
+			.abouts-banner {
+				margin-top: 150px;
+				border: 1px solid #c3c3c3;
+				margin-bottom: 50px;
+				background-color: #efefef;
+			}
+			
+			.abouts-banner .met-editor {
+				background-color: #efefef;
+			}
+			
+			.abouts-title {
+				float: right;
+				width: 50%;
+				padding: 30px;
+				padding-bottom: 0px;
+				font-size: 18px;
+				font-weight: 300;
+			}
+			
+			.abouts-title .soild{
+				width:50px;border-bottom: 5px solid yellow;
+			}
+			
+			.abouts-img {
+				float: left;
+				width: 50%;
+				min-height: 300px;
+			}
+			.abouts-img img{
+				width: 100%;
+				min-height: 300px;
+			}
+			
+			.abouts-content {
+				float: left;
+				width: 50%;
+				padding: 30px;
+				padding-top: 10px;
+				font-size: 18px;
+				font-weight: 300;
+			}
+			
+			@media (max-width: 768px) {
+				.abouts-banner{
+					margin-top: 0px;
+				}
+				.abouts-title {
+					float: none;
+					width: 100%;
+					text-align: center;
+					margin-bottom: 10px;
+				}
+				.abouts-title .soild{
+					margin: 0 auto;
+				}
+				.abouts-img {
+					float: none;
+					width: 100%;
+				}
+				.abouts-content {
+					float: none;
+					width: 100%;
 				}
 			}
 		</style>
@@ -41,31 +101,26 @@
         -->
 		<script src ="../app/html/navbar-html.js"></script>
 
-		<section class="met-show animsition">
-			<div class="container">
-				<div class="row">
-					<div class="met-editor lazyload clearfix" style="padding-left: 0px;padding-right: 0px;">
-						<table>
-							<tbody>
-								<tr>
-									<td width="800" style="word-break: break-all;">
-										<img style="width: 800px !important;height: 400px !important;" src="../upload/brand/banner.jpg" />
-									</td>
-									<td width="800" valign="top" style="padding: 50px;" style="word-break: break-all;">
-										<p style="font-weight: 800;" data-plugin="appear" data-animate="slide-top" data-repeat="false">
-											BRAND IDEA
-										</p>
-										<p style="width:50px;border-bottom: 5px solid yellow;"></p>
-										<p data-plugin="appear" data-animate="slide-top" data-repeat="false">“亚马逊王国”的品牌理念来自世界最大的热带亚马逊雨林，神奇壮阔，充满精彩也充满挑战吗，同在每周的席卷全球的Grit教育理念提倡者，美籍亚裔心理学家、宾夕法尼亚大学教授Angela Duckworth给了我们更多启发；<span style="font-size: 18px;font-weight: bolder;">以Grit（坚毅）为核心————</span>包含Grit坚毅、zest激情、self-control自制力、optimism乐观态度、gratitude感恩精神、social intelligence社交智力、curiosity好奇心，开启全美性格教育时代，预示孩子未来成功的“七大密码”！
-										</p>
-									</td>
-								</tr>
-							</tbody>
-						</table>
+		<div class="container">
+			<div class="row abouts-banner">
+				<div class="abouts-title">
+					<p style="font-weight: 800;" data-plugin="appear" data-animate="slide-top" data-repeat="false">
+						BRAND IDEA
+					</p>
+					<p class="soild"></p>
+				</div>
+				<div class="abouts-img">
+					<div class="met-editor">
+						<img class="cursor" src="../upload/brand/banner.jpg" />
 					</div>
 				</div>
+				<div class="abouts-content">
+					<p data-plugin="appear" data-animate="slide-top" data-repeat="false">“亚马逊王国”的品牌理念来自世界最大的热带亚马逊雨林，神奇壮阔，充满精彩也充满挑战吗，同在每周的席卷全球的Grit教育理念提倡者，美籍亚裔心理学家、宾夕法尼亚大学教授Angela Duckworth给了我们更多启发；<span style="font-size: 18px;font-weight: bolder;">以Grit（坚毅）为核心————</span>包含Grit坚毅、zest激情、self-control自制力、optimism乐观态度、gratitude感恩精神、social intelligence社交智力、curiosity好奇心，开启全美性格教育时代，预示孩子未来成功的“七大密码”！
+					</p>
+				</div>
+
 			</div>
-		</section>
+		</div>
 
 		<!--
         	作者：offline
