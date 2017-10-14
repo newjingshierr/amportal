@@ -35,6 +35,11 @@
 
 
 /* 手机样式*/
+@media screen and (orientation:landscape) {
+	.new-img-td img {
+		width: 100% !important;
+	}
+}
 
 @media (max-width:768px) {
 	.new-container {
