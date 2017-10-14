@@ -16,15 +16,19 @@
 	margin-bottom: 30px;
 }
 
-.new-img-tr td {
+.new-img-td {
 	width: 33.3%;
+}
+
+.new-img-tr{
+	display: -webkit-inline-box;
 }
 
 .new-img-tr img {
 	cursor: pointer;
 }
 
-.new-img-tr td p {
+.new-img-td p {
 	text-align: center;
 	margin-top: 10px;
 }
@@ -39,11 +43,14 @@
 	.new-table {
 		width: 100% !important;
 	}
-	.new-img-tr td {
+	.new-img-tr{
+		display: block;
+	}
+	.new-img-td {
 		width: 100% !important;
 		display: block;
 	}
-	.new-img-tr td img {
+	.new-img-td img {
 		width: 100% !important;
 	}
 }
