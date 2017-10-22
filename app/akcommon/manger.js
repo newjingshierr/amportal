@@ -31,7 +31,8 @@ var TableInit = function() {
 	// 初始化Table
 	oTableInit.Init = function() {
 		$('#tb_departments').bootstrapTable({
-			url: '../app/akcommon/data.json', //请求后台的URL（*）
+//			url: 'http://www.famliytree.cn/api/news/items', //请求后台的URL（*）
+			url:'../app/akcommon/data.json',
 			method: 'get', //请求方式（*）
 			toolbar: '#toolbar', //工具按钮用哪个容器
 			striped: true, //是否显示行间隔色
@@ -55,14 +56,12 @@ var TableInit = function() {
 			showToggle: true, //是否显示详细视图和列表视图的切换按钮
 			cardView: false, //是否显示详细视图
 			detailView: false, //是否显示父子表
+			onRefresh: oTableInit.Refresh, //刷新
 			columns: [{
 				checkbox: true
 			}, {
 				field: 'Title',
 				title: '标题'
-			}, {
-				field: 'Content',
-				title: '内容'
 			}, {
 				field: 'CreatedBy',
 				title: '创建人员'
@@ -87,15 +86,25 @@ var TableInit = function() {
 	};
 
 	// 手动刷新列表
-	oTableInit.Refresh=function(){
-		$('#tb_departments').bootstrapTable("refresh");
+	oTableInit.Refresh = function() {
+		$.ajax({
+			url: '../app/akcommon/data.json',
+			type: "get",
+			dataType: 'json',
+			success: function(result) {
+				console.log(result);
+			},
+			error: function(result) {
+				console.log(result);
+			}
+		});
 	}
 
 	//得到查询的参数
 	oTableInit.queryParams = function(params) {
 		var temp = { //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
-			limit: params.limit, //页面大小
-			offset: params.offset, //页码
+			//			limit: params.limit, //页面大小
+			//			offset: params.offset //页码
 		};
 		return temp;
 	};
@@ -114,38 +123,42 @@ var TableInit = function() {
 
 	// 删除
 	oBtn.Delete.click(function() {
-		alert("Delte");
+		var rows=$('#tb_departments').bootstrapTable('getSelections');
 	});
 
 	// 提交
 	oBtn.Submit.click(function() {
 		switch(oModal.type) {
-			case 0:// 新增
+			case 0: // 新增
 				oTableInit.AddData();
 				break;
-			case 1:// 编辑
+			case 1: // 编辑
 				oTableInit.EditData();
 				break;
 			default:
 				break;
 		}
 	});
-	
+
 	// 新增
-	oTableInit.AddData=function(){
+	oTableInit.AddData = function() {
+
+		alert('操作成功!');
 		oTableInit.Refresh();
 		oTableInit.HideModal();
 	};
-	
+
 	// 编辑
-	oTableInit.EditData=function(){
+	oTableInit.EditData = function() {
+
+		alert('操作成功!');
 		oTableInit.Refresh();
 		oTableInit.HideModal();
 	};
-	
+
 	// 验证Modal数据
-	oTableInit.ValidateForm=function(){
-		
+	oTableInit.ValidateForm = function() {
+		//发布时间
 	}
 
 	// 展示Modal 0：新增 1编辑
@@ -184,9 +197,9 @@ var TableInit = function() {
 	}
 
 	// 隐藏Modal
-	oTableInit.HideModal = function(){
+	oTableInit.HideModal = function() {
 		oModal.myModal.modal("hide");
 	}
-	
+
 	return oTableInit;
 };
