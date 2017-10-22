@@ -2,23 +2,33 @@
  * Created by Handy on 2017/10/22.
  */
 $(function() {
-
 	//1.初始化Table
 	var oTable = new TableInit();
 	oTable.Init();
-
-	//2.初始化Button的点击事件
-	var oButton = new ButtonInit();
-	oButton.Init();
-
-	//3.初始化日期控件
-	var oDateTime=new DateTimeInit();
-	oDateTime.Init();
 });
 
 var TableInit = function() {
 	var oTableInit = new Object();
-	//初始化Table
+
+	//操作
+	var oBtn = {
+		Add: $("#btn_add"),
+		Delete: $("#btn_delete"),
+		Submit: $("#btn_submit")
+	};
+
+	//操作界面
+	var oModal = {
+		myModal: $('#myModal'), // Modal
+		title: $("#myModalLabel"), // 标题
+		pushDate: $("#pushdatetimepicker"), // 发布时间
+		newTitle: $("#newTitle"), // 新闻标题
+		newContent: $("#newContent"), // 新闻内容
+		newType: $("#newType"), // 新闻类型
+		type: 0 //类型 0||1
+	};
+
+	// 初始化Table
 	oTableInit.Init = function() {
 		$('#tb_departments').bootstrapTable({
 			url: '../app/akcommon/data.json', //请求后台的URL（*）
@@ -68,63 +78,99 @@ var TableInit = function() {
 			}, {
 				field: '#',
 				title: '操作',
-				align: 'center',
+				events: oTableInit.operateEditor,
 				formatter: function(value, row, index) {
-					return '<button id="btn_edit" type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改</button>'
+					return '<button id="TableEditor" type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>编辑</button>'
 				}
 			}]
 		});
 	};
+
+	// 手动刷新列表
+	oTableInit.Refresh=function(){
+		$('#tb_departments').bootstrapTable("refresh");
+	}
 
 	//得到查询的参数
 	oTableInit.queryParams = function(params) {
 		var temp = { //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
 			limit: params.limit, //页面大小
 			offset: params.offset, //页码
-			departmentname: $("#txt_search_departmentname").val(),
-			statu: $("#txt_search_statu").val()
 		};
 		return temp;
 	};
 
-	return oTableInit;
-};
-
-//初始化按钮
-var ButtonInit = function() {
-	var oInit = new Object();
-	var oBtn = {
-		Add: $("#btn_add"),
-		Delete: $("#btn_delete")
+	// 绑定按钮事件
+	oTableInit.operateEditor = {
+		"click #TableEditor": function(event, value, row, index) { //编辑按钮事件
+			oTableInit.ShowModal(1, row);
+		}
 	};
 
-	oInit.Init = function() {
-		//初始化页面上面的按钮事件
+	// 新增
+	oBtn.Add.click(function() {
+		oTableInit.ShowModal(0, null);
+	});
 
-		//新增
-		oBtn.Add.click(function() {
-			$("#myModal").modal('show');
-		});
+	// 删除
+	oBtn.Delete.click(function() {
+		alert("Delte");
+	});
 
-		//删除
-		oBtn.Delete.click(function() {
-			alert("Delte");
-		});
+	// 提交
+	oBtn.Submit.click(function() {
+		switch(oModal.type) {
+			case 0:// 新增
+				oTableInit.AddData();
+				break;
+			case 1:// 编辑
+				oTableInit.EditData();
+				break;
+			default:
+				break;
+		}
+	});
+	
+	// 新增
+	oTableInit.AddData=function(){
+		oTableInit.Refresh();
+		oTableInit.HideModal();
 	};
-
-	return oInit;
-};
-
-//初始化日期控件
-var DateTimeInit = function() {
-	var oDateTimeInit = new Object();
-	var oDateTIme = {
-		PushDate: $('#pushdatetimepicker')
+	
+	// 编辑
+	oTableInit.EditData=function(){
+		oTableInit.Refresh();
+		oTableInit.HideModal();
 	};
+	
+	// 验证Modal数据
+	oTableInit.ValidateForm=function(){
+		
+	}
 
-	oDateTimeInit.Init = function() {
-		//初始化日期控件
-		oDateTIme.PushDate.datetimepicker({
+	// 展示Modal 0：新增 1编辑
+	oTableInit.ShowModal = function(type, data) {
+		oModal.type = type;
+		switch(type) {
+			case 0:
+				oModal.title.text("新增");
+				oModal.pushDate.val("");
+				oModal.newTitle.val("");
+				oModal.newContent.val("");
+				oModal.newType.val("");
+				break;
+			case 1:
+				oModal.title.text("编辑");
+				oModal.pushDate.val(data.PublishDate);
+				oModal.newTitle.val(data.Title);
+				oModal.newContent.val(data.Content);
+				oModal.newType.val(data.Type);
+				break;
+			default:
+				console.log("oModalInit.Show 未得到正确的type");
+				break;
+		}
+		oModal.pushDate.datetimepicker({
 			//language:  'fr',
 			weekStart: 1,
 			todayBtn: 1,
@@ -134,7 +180,13 @@ var DateTimeInit = function() {
 			forceParse: 0,
 			showMeridian: 1
 		});
-	};
+		oModal.myModal.modal("show");
+	}
 
-	return oDateTimeInit;
-}
+	// 隐藏Modal
+	oTableInit.HideModal = function(){
+		oModal.myModal.modal("hide");
+	}
+	
+	return oTableInit;
+};
