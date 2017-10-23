@@ -13,7 +13,6 @@ var TableInit = function() {
 	//操作
 	var oBtn = {
 		Add: $("#btn_add"),
-		Delete: $("#btn_delete"),
 		Submit: $("#btn_submit")
 	};
 
@@ -21,18 +20,19 @@ var TableInit = function() {
 	var oModal = {
 		myModal: $('#myModal'), // Modal
 		title: $("#myModalLabel"), // 标题
-		pushDate: $("#pushdatetimepicker"), // 发布时间
+		//		pushDate: $("#pushdatetimepicker"), // 发布时间
 		newTitle: $("#newTitle"), // 新闻标题
 		newContent: $("#newContent"), // 新闻内容
-		newType: $("#newType"), // 新闻类型
-		type: 0 //类型 0||1
+		type: "Add", //类型 Add||Edit
+		ID: 0
 	};
 
 	// 初始化Table
 	oTableInit.Init = function() {
 		$('#tb_departments').bootstrapTable({
-			//			url: 'http://www.famliytree.cn/api/news/items', //请求后台的URL（*）
-			url: '../app/akcommon/mangerdata.json',
+			url: 'http://www.famliytree.cn/api/news/items', //请求后台的URL（*）
+			//url: '../app/akcommon/mangerdata.json',
+			contentType: '', //请求的data格式
 			method: 'get', //请求方式（*）
 			toolbar: '#toolbar', //工具按钮用哪个容器
 			striped: true, //是否显示行间隔色
@@ -60,8 +60,6 @@ var TableInit = function() {
 			detailView: false, //是否显示父子表
 			onRefresh: oTableInit.Refresh, //刷新
 			columns: [{
-				checkbox: true
-			}, {
 				field: 'Title',
 				title: '标题'
 			}, {
@@ -81,7 +79,9 @@ var TableInit = function() {
 				title: '操作',
 				events: oTableInit.operateEditor,
 				formatter: function(value, row, index) {
-					return '<button id="TableEditor" type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>编辑</button>'
+					var btnEditor = '<button type="button" class="btn btn-default btn-edit"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>编辑</button>';
+					var btnDelete = '<button type="button" class="btn btn-default btn-delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除</button>';
+					return '<div class="btn-group">' + btnEditor + btnDelete + '</div>';
 				}
 			}]
 		});
@@ -90,13 +90,20 @@ var TableInit = function() {
 	// 手动刷新列表
 	oTableInit.Refresh = function() {
 		$('#tb_departments').bootstrapTable("showLoading");
+
+		var request = {
+			index: $('#tb_departments').bootstrapTable("getOptions").pageNumber - 1,
+			pageSize: $('#tb_departments').bootstrapTable("getOptions").pageSize
+		};
+
 		$.ajax({
-			url: '../app/akcommon/mangerdata.json',
+			url: 'http://www.famliytree.cn/api/news/items',
 			type: "get",
+			data: request,
 			dataType: 'json',
 			success: function(result) {
 				$('#tb_departments').bootstrapTable("hideLoading");
-				$('#tb_departments').bootstrapTable("load",result);
+				$('#tb_departments').bootstrapTable("load", result);
 			},
 			error: function(result) {
 				console.log(result);
@@ -107,36 +114,36 @@ var TableInit = function() {
 	//得到查询的参数
 	oTableInit.queryParams = function(params) {
 		var temp = { //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
-			limit: params.limit, //单页的行数
-			offset: params.offset //行开始索引
+			//			limit: params.limit, //单页的行数
+			//			offset: params.offset //行开始索引
+			index: params.offset == 0 ? 0 : $('#tb_departments').bootstrapTable("getOptions").pageNumber - 1,
+			pageSize: params.offset == 0 ? params.limit : $('#tb_departments').bootstrapTable("getOptions").pageSize
 		};
 		return temp;
 	};
 
 	// 绑定按钮事件
 	oTableInit.operateEditor = {
-		"click #TableEditor": function(event, value, row, index) { //编辑按钮事件
-			oTableInit.ShowModal(1, row);
+		"click .btn-edit": function(event, value, row, index) { //编辑按钮事件
+			oTableInit.ShowModal("Edit", row);
+		},
+		"click .btn-delete": function(event, value, row, index) { //删除按钮事件
+			oTableInit.DeleteData(row);
 		}
 	};
 
-	// 新增
+	// 新增按钮点击事件
 	oBtn.Add.click(function() {
-		oTableInit.ShowModal(0, null);
-	});
-
-	// 删除
-	oBtn.Delete.click(function() {
-		var rows = $('#tb_departments').bootstrapTable('getSelections');
+		oTableInit.ShowModal("Add", null);
 	});
 
 	// 提交
 	oBtn.Submit.click(function() {
 		switch(oModal.type) {
-			case 0: // 新增
+			case "Add": // 新增
 				oTableInit.AddData();
 				break;
-			case 1: // 编辑
+			case "Edit": // 编辑
 				oTableInit.EditData();
 				break;
 			default:
@@ -144,59 +151,116 @@ var TableInit = function() {
 		}
 	});
 
-	// 新增
+	// 新增数据
 	oTableInit.AddData = function() {
+		var request = {
+			coverImagePath: "/", //封面图片地址
+			title: oModal.newTitle.val(), //新闻标题 
+			body: oModal.newContent.val() //新闻内容
+				//			PublishDate: oModal.pushDate.val() //发布时间
+		}
 
-		alert('操作成功!');
-		oTableInit.Refresh();
-		oTableInit.HideModal();
+		$.ajax({
+			url: 'http://www.famliytree.cn/api/news/item',
+			type: "post",
+			data: request,
+			dataType: 'json',
+			success: function(result) {
+				alert('操作成功!');
+				oTableInit.Refresh();
+				oTableInit.HideModal();
+			},
+			error: function(result) {
+				console.log(result);
+				oTableInit.Refresh();
+				oTableInit.HideModal();
+			}
+		});
 	};
 
-	// 编辑
+	// 编辑数据
 	oTableInit.EditData = function() {
+		var request = {
+			coverImagePagth: "/", //封面图片地址
+			title: oModal.newTitle.val(), //新闻标题 
+			body: oModal.newContent.val(), //新闻内容
+			//			PublishDate: oModal.pushDate.val(), //发布时间
+			ID: oModal.ID
+		}
 
-		alert('操作成功!');
-		oTableInit.Refresh();
-		oTableInit.HideModal();
+		$.ajax({
+			url: 'http://www.famliytree.cn/api/news/item',
+			type: "post",
+			data: request,
+			dataType: "json",
+			success: function(result) {
+				alert('操作成功!');
+				oTableInit.Refresh();
+				oTableInit.HideModal();
+			},
+			error: function(result) {
+				console.log(result);
+				oTableInit.Refresh();
+				oTableInit.HideModal();
+			}
+		});
 	};
 
-	// 验证Modal数据
-	oTableInit.ValidateForm = function() {
-		//发布时间
-	}
+	// 删除数据
+	oTableInit.DeleteData = function(data) {
+		var request = {
+			ID: data.ID
+		}
 
-	// 展示Modal 0：新增 1编辑
+		$.ajax({
+			url: 'http://www.famliytree.cn/api/news/item/delete',
+			type: 'post',
+			data: request,
+			dataType: 'json',
+			success: function(result) {
+				alert('操作成功!');
+				oTableInit.Refresh();
+				oTableInit.HideModal();
+			},
+			error: function(result) {
+				console.log(result);
+				oTableInit.Refresh();
+				oTableInit.HideModal();
+			}
+		});
+	};
+
+	// 展示Modal Add：新增   Edit:编辑
 	oTableInit.ShowModal = function(type, data) {
 		oModal.type = type;
+		oModal.ID = data ? data.ID : 0;
 		switch(type) {
-			case 0:
+			case "Add":
 				oModal.title.text("新增");
-				oModal.pushDate.val("");
+				//				oModal.pushDate.val("");
 				oModal.newTitle.val("");
 				oModal.newContent.val("");
-				oModal.newType.val("");
 				break;
-			case 1:
+			case "Edit":
 				oModal.title.text("编辑");
-				oModal.pushDate.val(data.PublishDate);
+				//				oModal.pushDate.val(data.PublishDate);
 				oModal.newTitle.val(data.Title);
 				oModal.newContent.val(data.Content);
-				oModal.newType.val(data.Type);
 				break;
 			default:
 				console.log("oModalInit.Show 未得到正确的type");
 				break;
 		}
-		oModal.pushDate.datetimepicker({
-			//language:  'fr',
-			weekStart: 1,
-			todayBtn: 1,
-			autoclose: 1,
-			todayHighlight: 1,
-			startView: 2,
-			forceParse: 0,
-			showMeridian: 1
-		});
+		//		oModal.pushDate.datetimepicker({
+		//			language: 'zh-CN', // 语言
+		//			weekStart: 1,
+		//			todayBtn: 1,
+		//			autoclose: 1,
+		//			todayHighlight: 1,
+		//			startView: 2,
+		//			forceParse: 0,
+		//			showMeridian: 1
+		//		});
 		oModal.myModal.modal("show");
 	}
 
