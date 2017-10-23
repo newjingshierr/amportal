@@ -31,8 +31,8 @@ var TableInit = function() {
 	// 初始化Table
 	oTableInit.Init = function() {
 		$('#tb_departments').bootstrapTable({
-//			url: 'http://www.famliytree.cn/api/news/items', //请求后台的URL（*）
-			url:'../app/akcommon/data.json',
+			//			url: 'http://www.famliytree.cn/api/news/items', //请求后台的URL（*）
+			url: '../app/akcommon/mangerdata.json',
 			method: 'get', //请求方式（*）
 			toolbar: '#toolbar', //工具按钮用哪个容器
 			striped: true, //是否显示行间隔色
@@ -41,12 +41,14 @@ var TableInit = function() {
 			sortable: false, //是否启用排序
 			sortOrder: "asc", //排序方式
 			queryParams: oTableInit.queryParams, //传递参数（*）
-			sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
+			sidePagination: "server", //分页方式：client客户端分页，server服务端分页（*）
+			totalField: 'total', //server服务端时 行总数
+			dataField: 'rows', // server服务端时 所有数据
 			pageNumber: 1, //初始化加载第一页，默认第一页
 			pageSize: 10, //每页的记录行数（*）
-			pageList: [10, 25, 50, 100], //可供选择的每页的行数（*）
-			search: true, //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
-			strictSearch: true,
+			pageList: [2, 10, 25, 50, 100], //可供选择的每页的行数（*）
+			search: false, //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+			strictSearch: false, //设置为 true启用 全匹配搜索，否则为模糊搜索
 			showColumns: true, //是否显示所有的列
 			showRefresh: true, //是否显示刷新按钮
 			minimumCountColumns: 2, //最少允许的列数
@@ -87,12 +89,14 @@ var TableInit = function() {
 
 	// 手动刷新列表
 	oTableInit.Refresh = function() {
+		$('#tb_departments').bootstrapTable("showLoading");
 		$.ajax({
-			url: '../app/akcommon/data.json',
+			url: '../app/akcommon/mangerdata.json',
 			type: "get",
 			dataType: 'json',
 			success: function(result) {
-				console.log(result);
+				$('#tb_departments').bootstrapTable("hideLoading");
+				$('#tb_departments').bootstrapTable("load",result);
 			},
 			error: function(result) {
 				console.log(result);
@@ -103,8 +107,8 @@ var TableInit = function() {
 	//得到查询的参数
 	oTableInit.queryParams = function(params) {
 		var temp = { //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
-			//			limit: params.limit, //页面大小
-			//			offset: params.offset //页码
+			limit: params.limit, //单页的行数
+			offset: params.offset //行开始索引
 		};
 		return temp;
 	};
@@ -123,7 +127,7 @@ var TableInit = function() {
 
 	// 删除
 	oBtn.Delete.click(function() {
-		var rows=$('#tb_departments').bootstrapTable('getSelections');
+		var rows = $('#tb_departments').bootstrapTable('getSelections');
 	});
 
 	// 提交
