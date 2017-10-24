@@ -5,6 +5,12 @@ $(function() {
 	//1.初始化Table
 	var oTable = new TableInit();
 	oTable.Init();
+	
+	//2.初始化消息提示组件
+	toastr.options = {//toastr.warning('').success('').error('').clear()
+		closeButton: true//是否显示关闭按钮
+	}
+	
 });
 
 var TableInit = function() {
@@ -30,8 +36,8 @@ var TableInit = function() {
 	// 初始化Table
 	oTableInit.Init = function() {
 		$('#tb_departments').bootstrapTable({
-			url: 'http://www.famliytree.cn/api/news/items', //请求后台的URL（*）
-			//url: '../app/akcommon/mangerdata.json',
+//			url: 'http://www.famliytree.cn/api/news/items', //请求后台的URL（*）
+			url: 'http://localhost:64833/api/news/items',
 			contentType: '', //请求的data格式
 			method: 'get', //请求方式（*）
 			toolbar: '#toolbar', //工具按钮用哪个容器
@@ -113,9 +119,7 @@ var TableInit = function() {
 
 	//得到查询的参数
 	oTableInit.queryParams = function(params) {
-		var temp = { //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
-			//			limit: params.limit, //单页的行数
-			//			offset: params.offset //行开始索引
+		var temp = { 
 			index: params.offset == 0 ? 0 : $('#tb_departments').bootstrapTable("getOptions").pageNumber - 1,
 			pageSize: params.offset == 0 ? params.limit : $('#tb_departments').bootstrapTable("getOptions").pageSize
 		};
@@ -154,26 +158,26 @@ var TableInit = function() {
 	// 新增数据
 	oTableInit.AddData = function() {
 		var request = {
-			coverImagePath: "/", //封面图片地址
+			coverImagePath: "a.jpg", //封面图片地址
 			title: oModal.newTitle.val(), //新闻标题 
 			body: oModal.newContent.val() //新闻内容
-				//			PublishDate: oModal.pushDate.val() //发布时间
 		}
 
 		$.ajax({
-			url: 'http://www.famliytree.cn/api/news/item',
+			url: 'http://localhost:64833/api/news/item',
 			type: "post",
 			data: request,
 			dataType: 'json',
 			success: function(result) {
-				alert('操作成功!');
-				oTableInit.Refresh();
+				toastr.success('操作成功');
 				oTableInit.HideModal();
+				oTableInit.Refresh();
 			},
 			error: function(result) {
+				toastr.error('操作失败');
 				console.log(result);
-				oTableInit.Refresh();
 				oTableInit.HideModal();
+				oTableInit.Refresh();
 			}
 		});
 	};
@@ -181,27 +185,27 @@ var TableInit = function() {
 	// 编辑数据
 	oTableInit.EditData = function() {
 		var request = {
-			coverImagePagth: "/", //封面图片地址
+			coverImagePath: "a.jpg", //封面图片地址
 			title: oModal.newTitle.val(), //新闻标题 
 			body: oModal.newContent.val(), //新闻内容
-			//			PublishDate: oModal.pushDate.val(), //发布时间
 			ID: oModal.ID
 		}
 
 		$.ajax({
-			url: 'http://www.famliytree.cn/api/news/item',
+			url: 'http://localhost:64833/api/news/item/Modify',
 			type: "post",
 			data: request,
 			dataType: "json",
 			success: function(result) {
-				alert('操作成功!');
-				oTableInit.Refresh();
+				toastr.success('操作成功');
 				oTableInit.HideModal();
+				oTableInit.Refresh();
 			},
 			error: function(result) {
+				toastr.error('操作失败');
 				console.log(result);
-				oTableInit.Refresh();
 				oTableInit.HideModal();
+				oTableInit.Refresh();
 			}
 		});
 	};
@@ -213,19 +217,20 @@ var TableInit = function() {
 		}
 
 		$.ajax({
-			url: 'http://www.famliytree.cn/api/news/item/delete',
+			url: 'http://localhost:64833/api/news/item/delete',
 			type: 'post',
 			data: request,
 			dataType: 'json',
 			success: function(result) {
-				alert('操作成功!');
-				oTableInit.Refresh();
+				toastr.success('操作成功');
 				oTableInit.HideModal();
+				oTableInit.Refresh();
 			},
 			error: function(result) {
+				toastr.error('操作失败');
 				console.log(result);
-				oTableInit.Refresh();
 				oTableInit.HideModal();
+				oTableInit.Refresh();
 			}
 		});
 	};
@@ -251,16 +256,6 @@ var TableInit = function() {
 				console.log("oModalInit.Show 未得到正确的type");
 				break;
 		}
-		//		oModal.pushDate.datetimepicker({
-		//			language: 'zh-CN', // 语言
-		//			weekStart: 1,
-		//			todayBtn: 1,
-		//			autoclose: 1,
-		//			todayHighlight: 1,
-		//			startView: 2,
-		//			forceParse: 0,
-		//			showMeridian: 1
-		//		});
 		oModal.myModal.modal("show");
 	}
 
