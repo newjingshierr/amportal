@@ -47,7 +47,7 @@ var TableInit = function() {
 	oTableInit.Init = function() {
 		$('#tb_departments').bootstrapTable({
 			//			url: 'http://www.famliytree.cn/api/news/items', //请求后台的URL（*）
-			url: 'http://localhost:64833/api/news/items',
+			url: 'http://www.famliytree.cn/api/news/items',
 			contentType: '', //请求的data格式
 			method: 'get', //请求方式（*）
 			toolbar: '#toolbar', //工具按钮用哪个容器
@@ -174,7 +174,7 @@ var TableInit = function() {
 		}
 
 		$.ajax({
-			url: 'http://localhost:64833/api/news/item',
+			url: 'http://www.famliytree.cn/api/news/item',
 			type: "post",
 			data: request,
 			dataType: 'json',
@@ -202,7 +202,7 @@ var TableInit = function() {
 		}
 
 		$.ajax({
-			url: 'http://localhost:64833/api/news/item/Modify',
+			url: 'http://www.famliytree.cn/api/news/item/Modify',
 			type: "post",
 			data: request,
 			dataType: "json",
@@ -227,7 +227,7 @@ var TableInit = function() {
 		}
 
 		$.ajax({
-			url: 'http://localhost:64833/api/news/item/delete',
+			url: 'http://www.famliytree.cn/api/news/item/delete',
 			type: 'post',
 			data: request,
 			dataType: 'json',
@@ -287,13 +287,13 @@ var TableInit = function() {
 			formData.append('files', data.target.files[0], NewGuid() + data.target.files[0].name);
 			formData.append('handy', 1);
 			$.ajax({
-				url: 'http://localhost:64833/api/news/item/upload',
+				url: 'http://www.famliytree.cn/api/news/item/upload',
 				type: 'POST',
 				data: formData,
 				contentType: false,
 				processData: false,
 				success: function(result) {
-					oBtn.ImgFile.attr('src',result);
+					oBtn.ImgFile.attr('src',window.location.origin+result);
 				},
 				error: function(result) {
 					console.log(result);
