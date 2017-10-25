@@ -5,13 +5,21 @@ $(function() {
 	//1.初始化Table
 	var oTable = new TableInit();
 	oTable.Init();
-	
+
 	//2.初始化消息提示组件
-	toastr.options = {//toastr.warning('').success('').error('').clear()
-		closeButton: true//是否显示关闭按钮
+	toastr.options = { //toastr.warning('').success('').error('').clear()
+		closeButton: true //是否显示关闭按钮
 	}
-	
+
 });
+
+function S4() {
+	return(((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+}
+
+function NewGuid() {
+	return(S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
+}
 
 var TableInit = function() {
 	var oTableInit = new Object();
@@ -19,7 +27,9 @@ var TableInit = function() {
 	//操作
 	var oBtn = {
 		Add: $("#btn_add"),
-		Submit: $("#btn_submit")
+		Submit: $("#btn_submit"),
+		ImgFile: $("#newCover"),
+		File: $("#btn_newfile")
 	};
 
 	//操作界面
@@ -36,7 +46,7 @@ var TableInit = function() {
 	// 初始化Table
 	oTableInit.Init = function() {
 		$('#tb_departments').bootstrapTable({
-//			url: 'http://www.famliytree.cn/api/news/items', //请求后台的URL（*）
+			//			url: 'http://www.famliytree.cn/api/news/items', //请求后台的URL（*）
 			url: 'http://localhost:64833/api/news/items',
 			contentType: '', //请求的data格式
 			method: 'get', //请求方式（*）
@@ -119,7 +129,7 @@ var TableInit = function() {
 
 	//得到查询的参数
 	oTableInit.queryParams = function(params) {
-		var temp = { 
+		var temp = {
 			index: params.offset == 0 ? 0 : $('#tb_departments').bootstrapTable("getOptions").pageNumber - 1,
 			pageSize: params.offset == 0 ? params.limit : $('#tb_departments').bootstrapTable("getOptions").pageSize
 		};
@@ -158,7 +168,7 @@ var TableInit = function() {
 	// 新增数据
 	oTableInit.AddData = function() {
 		var request = {
-			coverImagePath: "a.jpg", //封面图片地址
+			coverImagePath: oBtn.ImgFile.attr("src"), //封面图片地址
 			title: oModal.newTitle.val(), //新闻标题 
 			body: oModal.newContent.val() //新闻内容
 		}
@@ -185,7 +195,7 @@ var TableInit = function() {
 	// 编辑数据
 	oTableInit.EditData = function() {
 		var request = {
-			coverImagePath: "a.jpg", //封面图片地址
+			coverImagePath: oBtn.ImgFile.attr("src"), //封面图片地址
 			title: oModal.newTitle.val(), //新闻标题 
 			body: oModal.newContent.val(), //新闻内容
 			ID: oModal.ID
@@ -242,13 +252,13 @@ var TableInit = function() {
 		switch(type) {
 			case "Add":
 				oModal.title.text("新增");
-				//				oModal.pushDate.val("");
+				oBtn.ImgFile.attr('src',"../upload/201611/thumb.jpg");
 				oModal.newTitle.val("");
 				oModal.newContent.val("");
 				break;
 			case "Edit":
 				oModal.title.text("编辑");
-				//				oModal.pushDate.val(data.PublishDate);
+				oBtn.ImgFile.attr('src',data.coverImagePath);
 				oModal.newTitle.val(data.Title);
 				oModal.newContent.val(data.Content);
 				break;
@@ -263,6 +273,34 @@ var TableInit = function() {
 	oTableInit.HideModal = function() {
 		oModal.myModal.modal("hide");
 	}
+
+	//封面图片点击上传
+	oBtn.ImgFile.click(function() {
+		//触发input file控件
+		oBtn.File.click();
+	})
+
+	//上传控件
+	oBtn.File.change(function(data) {
+		if(data.target.files.length > 0) {
+			var formData = new FormData();
+			formData.append('files', data.target.files[0], NewGuid() + data.target.files[0].name);
+			formData.append('handy', 1);
+			$.ajax({
+				url: 'http://localhost:64833/api/news/item/upload',
+				type: 'POST',
+				data: formData,
+				contentType: false,
+				processData: false,
+				success: function(result) {
+					oBtn.ImgFile.attr('src',result);
+				},
+				error: function(result) {
+					console.log(result);
+				}
+			});
+		}
+	})
 
 	return oTableInit;
 };
