@@ -2,6 +2,7 @@
  * Created by Handy on 2017/10/22.
  */
 $(function() {
+
 	//1.初始化Table
 	var oTable = new TableInit();
 	oTable.Init();
@@ -23,6 +24,10 @@ function NewGuid() {
 
 var TableInit = function() {
 	var oTableInit = new Object();
+
+	var oData = {
+		location: "http://www.famliytree.cn"
+	};
 
 	//操作
 	var oBtn = {
@@ -46,8 +51,7 @@ var TableInit = function() {
 	// 初始化Table
 	oTableInit.Init = function() {
 		$('#tb_departments').bootstrapTable({
-			//			url: 'http://www.famliytree.cn/api/news/items', //请求后台的URL（*）
-			url: 'http://www.famliytree.cn/api/news/items',
+			url: oData.location + '/api/news/items',
 			contentType: '', //请求的data格式
 			method: 'get', //请求方式（*）
 			toolbar: '#toolbar', //工具按钮用哪个容器
@@ -168,13 +172,13 @@ var TableInit = function() {
 	// 新增数据
 	oTableInit.AddData = function() {
 		var request = {
-			coverImagePath: oBtn.ImgFile.attr("src"), //封面图片地址
+			imagePath: oBtn.ImgFile.attr("src"), //封面图片地址
 			title: oModal.newTitle.val(), //新闻标题 
 			body: oModal.newContent.val() //新闻内容
 		}
 
 		$.ajax({
-			url: 'http://www.famliytree.cn/api/news/item',
+			url: oData.location + '/api/news/item',
 			type: "post",
 			data: request,
 			dataType: 'json',
@@ -195,14 +199,14 @@ var TableInit = function() {
 	// 编辑数据
 	oTableInit.EditData = function() {
 		var request = {
-			coverImagePath: oBtn.ImgFile.attr("src"), //封面图片地址
+			imagePath: oBtn.ImgFile.attr("src"), //封面图片地址
 			title: oModal.newTitle.val(), //新闻标题 
 			body: oModal.newContent.val(), //新闻内容
 			ID: oModal.ID
 		}
 
 		$.ajax({
-			url: 'http://www.famliytree.cn/api/news/item/Modify',
+			url: oData.location + '/api/news/item/Modify',
 			type: "post",
 			data: request,
 			dataType: "json",
@@ -227,7 +231,7 @@ var TableInit = function() {
 		}
 
 		$.ajax({
-			url: 'http://www.famliytree.cn/api/news/item/delete',
+			url: oData.location + '/api/news/item/delete',
 			type: 'post',
 			data: request,
 			dataType: 'json',
@@ -252,13 +256,13 @@ var TableInit = function() {
 		switch(type) {
 			case "Add":
 				oModal.title.text("新增");
-				oBtn.ImgFile.attr('src',"../upload/201611/thumb.jpg");
+				oBtn.ImgFile.attr('src', "../upload/201611/thumb.jpg");
 				oModal.newTitle.val("");
 				oModal.newContent.val("");
 				break;
 			case "Edit":
 				oModal.title.text("编辑");
-				oBtn.ImgFile.attr('src',data.coverImagePath);
+				oBtn.ImgFile.attr('src', data.imagePath);
 				oModal.newTitle.val(data.Title);
 				oModal.newContent.val(data.Content);
 				break;
@@ -287,16 +291,20 @@ var TableInit = function() {
 			formData.append('files', data.target.files[0], NewGuid() + data.target.files[0].name);
 			formData.append('handy', 1);
 			$.ajax({
-				url: 'http://www.famliytree.cn/api/news/item/upload',
+				url: oData.location + '/api/news/item/upload',
 				type: 'POST',
 				data: formData,
 				contentType: false,
 				processData: false,
 				success: function(result) {
-					oBtn.ImgFile.attr('src',window.location.origin+result);
+					oBtn.ImgFile.attr('src', oData.location + result);
+					//清空上传控件
+					oBtn.File.val();
 				},
 				error: function(result) {
 					console.log(result);
+					//清空上传控件
+					oBtn.File.val();
 				}
 			});
 		}
