@@ -47,6 +47,13 @@
         -->
         <link rel="stylesheet" href="../app/toastr/toastr.css" />
         <script ype="text/javascript" src="../app/toastr/toastr.js"></script>
+        
+        <!--
+        	作者：1005824013@qq.com
+        	时间：2017-10-26
+        	描述：富文本控件
+        -->
+        <script ype="text/javascript" src="../app/wangEditor/release/wangEditor.js"></script>
 	</head>
 
 	<body>
@@ -82,7 +89,8 @@
 
 						<form id="modal_form">
 							<div class="form-group">
-								<img class="img-thumbnail" id="newCover" style="cursor: pointer;height: 300px;">
+								<div><label>封面图片</label></div>
+								<img class="img-thumbnail" id="newCover" style="cursor: pointer;height: 300px;max-width: 350px;">
 								<input type="file" id="btn_newfile" style="display: none;"/>
 							</div>
 							<div class="form-group">
@@ -91,7 +99,7 @@
 							</div>
 							<div class="form-group">
 								<label>内容</label>
-								<textarea class="form-control" rows="5" id="newContent"></textarea>
+								<div id="newContent"></div>
 							</div>
 						</form>
 

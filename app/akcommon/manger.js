@@ -24,6 +24,7 @@ function NewGuid() {
 
 var TableInit = function() {
 	var oTableInit = new Object();
+	var wangEditor = window.wangEditor;
 
 	var oData = {
 		location: "http://www.famliytree.cn"
@@ -41,9 +42,8 @@ var TableInit = function() {
 	var oModal = {
 		myModal: $('#myModal'), // Modal
 		title: $("#myModalLabel"), // 标题
-		//		pushDate: $("#pushdatetimepicker"), // 发布时间
 		newTitle: $("#newTitle"), // 新闻标题
-		newContent: $("#newContent"), // 新闻内容
+		newContent: null, // 新闻内容
 		type: "Add", //类型 Add||Edit
 		ID: 0
 	};
@@ -105,6 +105,28 @@ var TableInit = function() {
 				}
 			}]
 		});
+
+		//初始化富文本控件
+		oModal.newContent = new wangEditor('#newContent');
+		oModal.newContent.customConfig.menus = [
+			'head',
+			'bold',
+			'italic',
+			'underline',
+			'foreColor',
+			'link',
+			'justify',
+			'quote',
+			'image',
+			'undo'
+		];
+		// 使用 base64 保存图片
+		oModal.newContent.customConfig.uploadImgShowBase64 = true;
+		// 隐藏“网络图片”tab
+    	oModal.newContent.customConfig.showLinkImg = false
+		// 粘贴内容时，清除样式
+		oModal.newContent.customConfig.pasteFilterStyle = false;
+		oModal.newContent.create();
 	};
 
 	// 手动刷新列表
@@ -174,7 +196,7 @@ var TableInit = function() {
 		var request = {
 			imagePath: oBtn.ImgFile.attr("src"), //封面图片地址
 			title: oModal.newTitle.val(), //新闻标题 
-			body: oModal.newContent.val() //新闻内容
+			body: oModal.newContent.txt.html() //新闻内容
 		}
 
 		$.ajax({
@@ -201,7 +223,7 @@ var TableInit = function() {
 		var request = {
 			imagePath: oBtn.ImgFile.attr("src"), //封面图片地址
 			title: oModal.newTitle.val(), //新闻标题 
-			body: oModal.newContent.val(), //新闻内容
+			body: oModal.newContent.txt.html(), //新闻内容
 			ID: oModal.ID
 		}
 
@@ -258,13 +280,13 @@ var TableInit = function() {
 				oModal.title.text("新增");
 				oBtn.ImgFile.attr('src', "../upload/201611/thumb.jpg");
 				oModal.newTitle.val("");
-				oModal.newContent.val("");
+				oModal.newContent.txt.html("");
 				break;
 			case "Edit":
 				oModal.title.text("编辑");
 				oBtn.ImgFile.attr('src', data.imagePath);
 				oModal.newTitle.val(data.Title);
-				oModal.newContent.val(data.Content);
+				oModal.newContent.txt.html(data.Content);
 				break;
 			default:
 				console.log("oModalInit.Show 未得到正确的type");
