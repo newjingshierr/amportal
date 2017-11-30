@@ -34262,7 +34262,7 @@ footer .social a:hover i {
 }
 
 footer .footer-body h3 img {
-    max-height: 50px
+    /*max-height: 50px*/
 }
 
 @media (min-width:992px) {
@@ -37014,4 +37014,10 @@ footer .met_foot_txt p {
 /* common*/
 .cursor{
 	cursor: pointer;
+}
+
+@media (min-width: 992px) {
+    footer .footer-body-right{
+        float: right;
+    }
 }
