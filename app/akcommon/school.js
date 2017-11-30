@@ -44,7 +44,7 @@ $(function () {
         $('#messageContent').find('li').remove();
         $.each(result, function (index, item) {
             if (item.Type == type || Number(type) == contentEnum.All) {
-                var htmlText = '<li data-id="' + item.ID + '"><div class="media media-lg li-img"> <div class="media-left">' +
+                var htmlText = '<li data-id="' + item.ID + '" style="margin: 0px 30px"><div class="media media-lg li-img"> <div class="media-left">' +
                     '<a class="school-img school-link" href="#" title="' + item.Title + '" target="_self">' +
                     '<img class="media-object" src="../' + item.TitleCover + '" alt="' + item.Title + '"/>' +
                     '</a></div><div class="media-body"><h4 class="media-heading">' +
