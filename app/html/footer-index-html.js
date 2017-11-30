@@ -8,7 +8,7 @@ document.writeln("								<img src=\'upload/201706/1497260553.png\' class=\'img-
 document.writeln("							</h3>");
 document.writeln("							<p class=\'footer-service-code\'>更多详情请关注官方服务号</p>");
 document.writeln("							<h3 class=\'margin-bottom-20\'>");
-document.writeln("								<img src=\'upload/img/weixin.jpg\' class=\'img-service\' style=\'max-height: 100px;\'>");
+document.writeln("								<img src=\'upload/img/weixin.png\' class=\'img-service\' style=\'max-height: 189px;\'>");
 document.writeln("							</h3>");
 document.writeln("						</div>");
 document.writeln("					</div>");
