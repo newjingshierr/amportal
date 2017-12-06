@@ -18,10 +18,22 @@
     width: 100%;
 }
 
-.li-img img {
-    max-width: 160px !important;
-    width: 160px !important;
-    height: 120px !important;
+@media (min-width: 768px) {
+    .li-img img {
+        /*max-width: 160px !important;*/
+        /*width: 160px !important;*/
+        height: 142px !important;
+        width: 210px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .li-img img {
+        /*max-width: 160px !important;*/
+        /*width: 160px !important;*/
+        height: 120px !important;
+        width: 160px !important;
+    }
 }
 
 .store {

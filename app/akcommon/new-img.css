@@ -7,7 +7,7 @@
 
 .new-table .met-editor {
 	/*background-color: #8C8C8C;*/
-	/*padding: 10px;*/
+	padding: 30px 15px;
 }
 
 .new-table {
@@ -21,6 +21,7 @@
 }
 
 .new-img-tr{
+	padding: 0px 15px;
 	display: -webkit-inline-box;
 }
 

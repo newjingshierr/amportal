@@ -21,6 +21,40 @@
         .editorlightgallery {
             /*border: 1px solid #737373;*/
         }
+        .web-title{
+            display: block;
+        }
+        .mobile-title{
+            display: none;
+        }
+        .mobile-span-block{
+            display: none;
+        }
+        @media (max-width:768px) {
+            .appear-block{
+                background-color: #020202 !important;
+            }
+            .web-title{
+                display: none;
+            }
+            .mobile-title{
+                display: block;
+                margin-bottom: 0px;
+            }
+
+            .met-index-body h3.title:after{
+                display: none;
+            }
+            .met-index-body h3.mobile-title-last:after{
+                display: block;
+            }
+            .mobile-span-none{
+                display: none;
+            }
+            .mobile-span-block{
+                display: inline-block;
+            }
+        }
     </style>
 </head>
 
@@ -153,13 +187,29 @@
     <div class="container-fluid">
         <div class="row">
             <div class="container" style="padding-bottom: 90px">
-                <h3 class="title invisible" style="color: #333333" data-plugin="appear" data-animate="slide-bottom"
+                <!--web-->
+                <h3 class="title invisible web-title" style="color: #333333" data-plugin="appear" data-animate="slide-bottom"
                     data-repeat="false">
-                    Adventure of "Amazon Kingdom",with koopa and Belle!</h3>
+                    Adventure of "Amazon Kingdom",with Koopa and Belle!</h3>
+                <!--mobile-->
+                <h3 class="title invisible mobile-title" style="color: #333333" data-plugin="appear" data-animate="slide-bottom"
+                    data-repeat="false">
+                    Adventure of</h3>
+                <h3 class="title invisible mobile-title" style="color: #333333" data-plugin="appear" data-animate="slide-bottom"
+                    data-repeat="false">
+                    Amazon Kingdom</h3>
+                <h3 class="title invisible mobile-title" style="color: #333333" data-plugin="appear" data-animate="slide-bottom"
+                    data-repeat="false">
+                    with</h3>
+                <h3 class="title invisible mobile-title mobile-title-last" style="color: #333333" data-plugin="appear" data-animate="slide-bottom"
+                    data-repeat="false">
+                    Koopa and Belle!</h3>
+
+
                 <p class="desc invisible animation-delay-200"
                    style="color: #333333;max-width:80%;margin: 30px auto;font-size: 20px;font-weight: 600;"
                    data-plugin="appear"
-                   data-animate="slide-bottom" data-repeat="false">- 同酷巴王子/贝尔公主一起经历 "亚马逊王国" 奇遇记 -</p>
+                   data-animate="slide-bottom" data-repeat="false"><span class="mobile-span-none">- </span>同酷巴王子<span class="mobile-span-block">&</span><span class="mobile-span-none">/</span>贝尔公主一起经历<span class="mobile-span-none"> "</span>亚马逊王国<span class="mobile-span-none"> "</span>奇遇记<span class="mobile-span-none"> -</span></p>
             </div>
             <ul class="blocks blocks-100 blocks-xlg-4 blocks-md-4 blocks-sm-2 no-space" data-plugin="matchHeight"
                 data-by-row="true">
@@ -174,14 +224,14 @@
                             <span style="display: block;font-size: 16px;font-weight: bold;height: 60px;line-height: 30px;">坚毅品格</span>
                         </i>
                         <h4></h4>
-                        <p style="text-align: left;">
+                        <p style="text-align: justify;">
                             开启全美性格教育时代，预示孩子未来成功的“七大秘密”！我们致力打造的“亚马逊王国”，将帮助孩子在学习游乐中面对更多挑战和锻炼，开发塑造坚毅的性格，有助于他们将来在任何领域获得成功。</p>
 
                     </a>
 
                 </li>
 
-                <li class="animation-delay-400 animation-slide-bottom appear-no-repeat" data-plugin="appear"
+                <li class="animation-delay-400 animation-slide-bottom appear-no-repeat appear-block" data-plugin="appear"
                     data-animate="slide-bottom" data-repeat="false" style="visibility: visible; height: 382px;">
 
                     <a class="cursor">
@@ -191,7 +241,7 @@
                             <span style="display: block;font-size: 16px;font-weight: bold;height: 60px;line-height: 30px;">亲子互动</span>
                         </i>
                         <h4></h4>
-                        <p style="text-align: left;">
+                        <p style="text-align: justify;">
                             亚马逊王国亲子乐园致力于父母自身素质不断提高和完善，并帮助父母更加了解自己的孩子，以更积极、主动、平等的态度和孩子沟通、互动，既有助于改善亲子关系，增进亲情，更有助于孩子们健康成长和发展。</p>
 
                     </a>
@@ -208,14 +258,14 @@
                             <span style="display: block;font-size: 16px;font-weight: bold;height: 60px;line-height: 30px;">派对管家</span>
                         </i>
                         <h4></h4>
-                        <p style="text-align: left;">
+                        <p style="text-align: justify;">
                             亚马逊生日派对：我想陪你一起长大。用孩子的方式感恩成长，让生日嗨起来，有趣又不缺乏成长纪念。亚马逊特别定制生日主题，生日管家贴心服务，有趣的团队小游戏，美味餐饮享不停，还有乐园项目畅玩让宝贝和小伙伴一起High足一整天。</p>
 
                     </a>
 
                 </li>
 
-                <li class="animation-delay-800 animation-slide-bottom appear-no-repeat" data-plugin="appear"
+                <li class="animation-delay-800 animation-slide-bottom appear-no-repeat appear-block" data-plugin="appear"
                     data-animate="slide-bottom" data-repeat="false" style="visibility: visible; height: 382px;">
 
                     <a class="cursor">
@@ -225,7 +275,7 @@
                             <span style="display: block;font-size: 16px;font-weight: bold;height: 60px;line-height: 30px;">边玩边学</span>
                         </i>
                         <h4></h4>
-                        <p style="text-align: left;">
+                        <p style="text-align: justify;">
                             亚马逊丛林是世界最大的热带雨林，神奇壮阔，充满精彩也充满挑战。koopa酷巴王子和他的伙伴们生活在这神秘变幻的“亚马逊王国”里。现在他们带大家一起回归丛林，锻炼勇气、学习智慧、释放天性。</p>
 
                     </a>
@@ -240,7 +290,7 @@
 <div class="met-index-product met-index-body">
     <div class="container">
         <h3 class="title invisible" style="color: #333333" data-plugin="appear" data-animate="slide-bottom"
-            data-repeat="false">Grit</h3>
+            data-repeat="false">GRIT</h3>
         <p class="desc invisible animation-delay-200" style="color: #333333;max-width:90%;margin-bottom: 10px;"
            data-plugin="appear"
            data-animate="slide-bottom" data-repeat="false">亚马逊王国引进美国全新的教育理念Grit，根据中国儿童素质教育的需求，打造出耳目一新的儿童乐园新模式
@@ -265,7 +315,7 @@
         </p>
         <p class="desc invisible animation-delay-200" style="color: #333333;max-width:70%" data-plugin="appear"
            data-animate="fade" data-repeat="false">
-            一场乐趣缤纷的探险之旅，一个让孩子们自由主张的个性王国，这里就是亚马逊亲子文化乐园亚马逊王国是一个不断产生着创意,充满活力的儿童世界!</p>
+            一场乐趣缤纷的探险之旅，一个让孩子们自由主张的个性王国，这里就是亚马逊亲子文化乐园。</br>亚马逊王国是一个不断产生着创意,充满活力的儿童世界!</p>
     </div>
     <!--
     作者：offline
@@ -284,10 +334,11 @@
                     </div>
                 </div>
                 <div class="new-img-td met-editor" style="background: #e1cd27;width:25%">
-                    <div><img valign="top" src="upload/index/b1.jpg"/>
-                        <img valign="top" style="display: none;" src="upload/index/b2.jpg"/>
-                        <img valign="top" style="display: none;" src="upload/index/b3.jpg"/>
-                        <img valign="top" style="display: none;" src="upload/index/b4.jpg"/>
+                    <div>
+                            <img valign="top" src="upload/index/b1.jpg"/>
+                            <img valign="top" style="display: none;" src="upload/index/b2.jpg"/>
+                            <img valign="top" style="display: none;" src="upload/index/b3.jpg"/>
+                            <img valign="top" style="display: none;" src="upload/index/b4.jpg"/>
                     </div>
                 </div>
                 <div class="new-img-td met-editor" style="background: #e1cd27;width:25%">

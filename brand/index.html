@@ -25,11 +25,11 @@
 				margin-bottom: 50px;
 				background-color: #efefef;
 			}
-			
+
 			.abouts-banner .met-editor {
 				background-color: #efefef;
 			}
-			
+
 			.abouts-title {
 				float: right;
 				width: 50%;
@@ -38,21 +38,23 @@
 				font-size: 18px;
 				font-weight: 300;
 			}
-			
-			.abouts-title .soild{
-				width:50px;border-bottom: 5px solid yellow;
+
+			.abouts-title .soild {
+				width: 50px;
+				border-bottom: 5px solid yellow;
 			}
-			
+
 			.abouts-img {
 				float: left;
 				width: 50%;
-				min-height: 300px;
+				/*min-height: 300px;*/
 			}
-			.abouts-img img{
+
+			.abouts-img img {
 				width: 100%;
-				min-height: 300px;
+				/*min-height: 300px;*/
 			}
-			
+
 			.abouts-content {
 				float: left;
 				width: 50%;
@@ -61,9 +63,13 @@
 				font-size: 18px;
 				font-weight: 300;
 			}
-			
+
+			.content-br br{
+				display: block;
+			}
+
 			@media (max-width: 768px) {
-				.abouts-banner{
+				.abouts-banner {
 					margin-top: 0px;
 				}
 				.abouts-title {
@@ -72,7 +78,7 @@
 					text-align: center;
 					margin-bottom: 10px;
 				}
-				.abouts-title .soild{
+				.abouts-title .soild {
 					margin: 0 auto;
 				}
 				.abouts-img {
@@ -83,6 +89,35 @@
 					float: none;
 					width: 100%;
 				}
+				.content-br br{
+					display: none;
+				}
+			}
+
+			@media (max-width: 992px) {
+				.abouts-title .soild {
+					margin: 0 auto;
+				}
+				.abouts-title {
+					float: none;
+					width: 100%;
+					text-align: center;
+					margin-bottom: 10px;
+				}
+				.abouts-img {
+					float: none;
+					width: 100%;
+				}
+				.abouts-content {
+					float: none;
+					width: 100%;
+				}
+			}
+
+			.content-p{
+				text-align: justify !important;
+				font-size: 16px;
+				line-height: 20px;
 			}
 		</style>
 	</head>
@@ -117,7 +152,7 @@
 				<div class="abouts-content">
 					<p data-plugin="appear" data-animate="slide-top" data-repeat="false">“亚马逊王国”的品牌理念来自世界最大的热带亚马逊雨林，神奇壮阔，充满精彩也充满挑战吗，同在每周的席卷全球的Grit教育理念提倡者，美籍亚裔心理学家、宾夕法尼亚大学教授Angela Duckworth给了我们更多启发；</p>
 					<span style="font-size: 18px;font-weight: 700;">以Grit（坚毅）为核心————</span>
-					<p data-plugin="appear" data-animate="slide-top" data-repeat="false">包含Grit坚毅、zest激情、self-control自制力、optimism乐观态度、gratitude感恩精神、social intelligence社交智力、curiosity好奇心，开启全美性格教育时代，预示孩子未来成功的“七大密码”！
+					<p style="margin-top: 11px;" data-plugin="appear" data-animate="slide-top" data-repeat="false">包含Grit坚毅、zest激情、self-control自制力、optimism乐观态度、gratitude感恩精神、social intelligence社交智力、curiosity好奇心，开启全美性格教育时代，预示孩子未来成功的“七大密码”！
 					</p>
 				</div>
 
@@ -139,7 +174,7 @@
 							<img valign="top" style="display: none;" src="../upload/brand/a3.jpg" />
 						</div>
 						<div>
-							<p>如何培养孩子毅力、自我控制、好奇心、责任心、勇气以及自信心；如何融入孩子的五感体验，“思、乐、体、感、悟”；如何采用欧美最新的益智、设施、体验、视觉、创意的乐园技术。</p>
+							<p class="content-p">如何培养孩子毅力、自我控制、好奇心、责任心、勇气以及自信心；如何融入孩子的五感体验，“思、乐、体、感、悟”；如何采用欧美最新的益智、设施、体验、视觉、创意的乐园技术。</p>
 						</div>
 					</div>
 					<div class="new-img-td met-editor">
@@ -149,7 +184,7 @@
 							<img valign="top" style="display: none;" src="../upload/brand/b3.jpg" />
 						</div>
 						<div>
-							<p>塑造了生活在神秘变幻的“亚马逊王国”里的Koopa酷巴王子、Belle贝尔公主和他的伙伴们，赋予品牌精神的每一位亚马逊家族人物，带大家一起回归丛林，在探险中锻炼勇气、学习智慧、释放天性。</p>
+							<p class="content-p">塑造了生活在神秘变幻的“亚马逊王国”里的Koopa酷巴王子、Belle贝尔公主和他的伙伴们，赋予品牌精神的每一位亚马逊家族人物，带大家一起回归丛林，在探险中锻炼勇气、学习智慧、释放天性。</p>
 						</div>
 					</div>
 					<div class="new-img-td met-editor">
@@ -159,7 +194,7 @@
 							<img valign="top" style="display: none;" src="../upload/brand/c3.jpg" />
 						</div>
 						<div>
-							<p>面对新时代的全球竞争，孩子们应该更懂得面对！拥有一种包涵了自我激励、自我约束和自我调整的品格。帮助孩子在学习游乐中面对更多挑战和锻炼，开发塑造坚毅的性格，有助于他们将来在任何领域获得成功。</p>
+							<p class="content-p">面对新时代的全球竞争，孩子们应该更懂得面对！拥有一种包涵了自我激励、自我约束和自我调整的品格。帮助孩子在学习游乐中面对更多挑战和锻炼，开发塑造坚毅的性格，有助于他们将来在任何领域获得成功。</p>
 						</div>
 					</div>
 				</div>
