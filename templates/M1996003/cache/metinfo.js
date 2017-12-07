@@ -22322,6 +22322,7 @@ $(function () {
                     data_thumbs = data_src.split('upload/'),
                     data_thumb = '../upload/' + data_thumbs[1] + '&x=60&y=60';
                 $(this).wrap("<div class='lg-item-box' data-src='" + data_src + "' data-exthumbimage='" + data_src + "'></div>");
+                //添加标题
             }
         });
         $("body").addClass("met-white-lightGallery"); //画廊皮肤
