@@ -34610,7 +34610,7 @@ footer .met_foot_txt p {
 }
 
 .met-news {
-    padding: 30px 0px;
+    padding-bottom: 30px;
     background: #f2f2f2;
     border-top: 1px solid #f0f2f5
 }
@@ -34735,6 +34735,12 @@ footer .met_foot_txt p {
 .met-news .met-news-list ul li p.info i {
     color: #a3afb7;
     font-weight: 300
+}
+
+@media (max-width:992px) {
+    .met-news .met-news-list ul li .media p.des {
+        display: none
+    }
 }
 
 @media (max-width:768px) {
