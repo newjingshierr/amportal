@@ -64,7 +64,8 @@
 				width: 50%;
 				padding: 30px;
 				padding-top: 10px;
-				font-size: 18px;
+				font-size: 16px;
+				line-height: 26px;
 				font-weight: 300;
 			}
 
@@ -120,13 +121,13 @@
 
 			.content-p{
 				text-align: justify !important;
-				font-size: 16px;
-				line-height: 20px;
+				font-size: 14px;
+				line-height: 24px;
 			}
 
-			.new-img-title{
-				justify-content: flex-end;
-			}
+			/*.new-img-title{*/
+				/*justify-content: flex-end;*/
+			/*}*/
 		</style>
 	</head>
 
@@ -181,6 +182,7 @@
 							<img valign="top" style="display: none;" src="../upload/brand/a2.jpg" />
 							<img valign="top" style="display: none;" src="../upload/brand/a3.jpg" />
 							<div class="new-img-title">
+								<div class="title-h4">Think 思考</div>
 								<div class="title-content"> 查看详情</div>
 							</div>
 						</div>
@@ -194,6 +196,7 @@
 							<img valign="top" style="display: none;" src="../upload/brand/b2.jpg" />
 							<img valign="top" style="display: none;" src="../upload/brand/b3.jpg" />
 							<div class="new-img-title">
+								<div class="title-h4">Creative 创意</div>
 								<div class="title-content"> 查看详情</div>
 							</div>
 						</div>
@@ -210,6 +213,7 @@
 							<img valign="top" style="display: none;" src="../upload/brand/c2.jpg" />
 							<img valign="top" style="display: none;" src="../upload/brand/c3.jpg" />
 							<div class="new-img-title">
+								<div class="title-h4">Target 目标</div>
 								<div class="title-content"> 查看详情</div>
 							</div>
 						</div>
@@ -239,6 +243,13 @@
         	描述：图片预览插件
         -->
 		<script src="../templates/M1996003/cache/metinfo.js?2016122701"></script>
+		<script type="text/javascript">
+            $(function(){
+                $(".new-img-title").bind("click",function(){
+                    $(this).siblings().first().click();
+                });
+            })
+		</script>
 	</body>
 
 </html>
