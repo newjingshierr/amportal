@@ -47,7 +47,7 @@
 }
 
 .store .store-content {
-    padding:0px 100px;
+    /*padding:0px 100px;*/
     text-align: left;
 }
 
@@ -64,7 +64,7 @@
 .store-title {
     width: 20%;
     float: right;
-    text-align: center;
+    text-align: left;
     padding-top: 20px;
 }
 
@@ -129,13 +129,16 @@
 }
 
 .news-content {
-    width: 80%;
+    width: 100%;
+    padding-right: 20%;
+    display: inline-block;
 }
 
 .news-title {
     width: 20%;
-    text-align: center;
     float: right;
+    text-align: left;
+    padding-top: 50px;
 }
 
 .news-title span {
@@ -185,7 +188,9 @@
     }*/
     .store-title {
         width: 100%;
-        float: right;
+        text-align: center;
+        /*float: right;*/
+        padding-top: 30px !important;
     }
 
     .store-right {
@@ -224,6 +229,7 @@
 
     .news-content {
         width: 100%;
+        padding-right: 0px;
     }
 
     .news-title {
@@ -258,7 +264,9 @@
 @media (min-width: 769px) and (max-width: 1200px) {
     .store-title {
         width: 100%;
-        float: right;
+        /*float: right;*/
+        text-align: center;
+        padding-top: 60px;
     }
 
     .store-right {
@@ -266,7 +274,7 @@
     }
 
     .store .store-content {
-        padding-left: 0px;
+        padding: 0px;
     }
 
     .address {
@@ -287,5 +295,17 @@
     .address .address-content > span {
         /*padding: 0px;*/
         margin-left: 0px;
+    }
+    .news-content {
+        width: 100%;
+        padding-right: 0px;
+    }
+
+    .news-title {
+        float: none;
+        width: 100%;
+        text-align: center;
+        padding: 30px;
+        margin-bottom: 10px;
     }
 }

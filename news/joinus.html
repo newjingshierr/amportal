@@ -22,7 +22,29 @@
 	    <![endif]-->
 		<script src="../app/akcommon/jquery.min.js"></script>
 		<style type="text/css">
+			@media (min-width: 769px) and (max-width: 1200px) {
+				.join-us-content {
+					padding-top: 0px !important;
+					width: 100% !important;
+				}
+				.join-us-title {
+					text-align: center !important;
+					float: none !important;
+					width: 100% !important;
+					margin-bottom: 30px;
+					padding-top: 0px !important;
+				}
+			}
 			@media (max-width: 768px) {
+				.met-editor{
+					padding-top: 0px;
+				}
+				.met-news .met-news-list{
+					padding-top: 0px;
+				}
+				.section-top{
+					padding-top: 0px !important;
+				}
 				.join-us-content {
 					padding-top: 0px !important;
 				}
@@ -30,6 +52,7 @@
 					display: block !important;
 				}
 				.join-us-title {
+					text-align: center !important;
 					float: none !important;
 					width: 100% !important;
 					margin-bottom: 30px;
@@ -40,6 +63,12 @@
 				.join-us-footer {
 					width: 100% !important;
 				}
+				.met-news .met-news-list ul li{
+					margin-right: 0px !important;
+				}
+				.join-us-title{
+					padding-top: 30px !important;
+				}
 			}
 			
 			.met-news-list {
@@ -48,12 +77,14 @@
 			
 			.met-news .met-news-list ul li {
 				border-bottom: 1px solid #ccc1c1;
+				margin-right: 20%;
 			}
 			
 			.join-us-title {
-				text-align: center;
-				float: right;
 				width: 20%;
+				float: right;
+				text-align: left;
+				padding-top: 20px;
 			}
 			
 			.join-us-title span {
@@ -64,7 +95,8 @@
 			}
 			
 			.join-us-center {
-				width: 80%;
+				width: 100%;
+				display: inline-block;
 			}
 			
 			.join-us-footer {
@@ -87,6 +119,9 @@
 				width: 189px;
 				text-align: center;
 			}
+			.des{
+				display: block !important;
+			}
 		</style>
 	</head>
 
@@ -104,7 +139,7 @@
         -->
 		<script src="../app/html/navbar-html.js"></script>
 
-		<section class="met-news animsition join-us-content" style="padding-top: 130px;">
+		<section class="met-news animsition section-top" style="padding-top: 130px;">
 			<div class="container">
 				<div class="row">
 					<div class="met-editor lazyload clearfix">
